@@ -64,7 +64,7 @@ $result = mysqli_query($db, $sql);
     <div class="col-sm-4">
       <div class="panel panel-<?= $res['type'] ?>">
         <div class="panel-heading"><?= $res['name']?></div>
-        <div class="panel-body"><img src="<?= $res['image']?>" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"><img src="<?= $res['image']?>" class="img-responsive" alt="Image"></div>
         <div class="panel-footer"><?= $res['description'] ?></div>
       </div>
     </div>
