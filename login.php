@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 if (isset($_POST) && $_POST) {
 include 'db.php';
 $email = $_POST['email'];
@@ -9,7 +9,15 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
 $result = mysqli_query($db, $sql);
 if (mysqli_num_rows($result) > 0) {
+  $_SESSION['login'] = 'true';
+
+  while($res = mysqli_fetch_assoc($result)) {
+  $_SESSION['username'] = $res['username'];
+
+  }
   header("Location: /");
+  die();
+
 }else{
 $err = "true";
 } 
@@ -76,7 +84,6 @@ $err = "true";
     echo '<center><div class="alert alert-warning">Login Error!!</div></center>';
   }
      ?>
-     
 <form method="post" action="login.php">
   <div class="form-group">
     <label for="email">Email address</label>

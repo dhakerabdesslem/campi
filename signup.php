@@ -65,6 +65,22 @@ include 'db.php';
 <div class="container">    
 <form>
   <div class="form-group">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" name="nom" id="nom" aria-describedby="nomHelp" placeholder="Enter nom">
+  </div>
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <input type="text" class="form-control" name="prenom" id="prenom" aria-describedby="prenomHelp" placeholder="Enter prenom">
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Enter prenom">
+  </div>
+  <div class="form-group">
+    <label for="telephone">Telephone</label>
+    <input type="text" class="form-control" name="telephone" id="telephone" aria-describedby="telephoneHelp" placeholder="Enter telephone">
+  </div>
+  <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>

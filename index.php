@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(0);
 ini_set('display_errors', 0);
 include 'db.php';
@@ -56,8 +57,13 @@ $result = mysqli_query($db, $sql);
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php if($_SESSION['login'] == 'true'){
+        echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>';
+        } else {
+          echo '<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+          echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+        }
+        ?>
       </ul>
     </div>
   </div>
