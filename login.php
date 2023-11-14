@@ -1,9 +1,18 @@
 
 <?php
-error_reporting(0);
-ini_set('display_errors', 0);
+
 if (isset($_POST) && $_POST) {
 include 'db.php';
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
+$result = mysqli_query($db, $sql);
+if (mysqli_num_rows($result) > 0) {
+  header("Location: /");
+}else{
+$err = "true";
+} 
 }
 ?>
 <!DOCTYPE html>
@@ -62,6 +71,11 @@ include 'db.php';
 </nav>
 
 <div class="container">    
+<?php 
+  if($err == 'true') {
+    echo '<center><div class="alert alert-warning">Login Error!!</div></center>';
+  }
+     ?>
 <form method="post" action="login.php">
   <div class="form-group">
     <label for="email">Email address</label>
@@ -69,8 +83,8 @@ include 'db.php';
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-    <label for="paswword">Password</label>
-    <input type="password" class="form-control" name="paswword" id="paswword" placeholder="Password" required>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
     <small id="passwordHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
 
   </div>
@@ -81,5 +95,10 @@ include 'db.php';
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
+<script type="text/javascript">
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+</script>
 </body>
 </html>
