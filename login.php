@@ -76,6 +76,7 @@ $err = "true";
     echo '<center><div class="alert alert-warning">Login Error!!</div></center>';
   }
      ?>
+     
 <form method="post" action="login.php">
   <div class="form-group">
     <label for="email">Email address</label>
