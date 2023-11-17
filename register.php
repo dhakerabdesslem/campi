@@ -2,7 +2,8 @@
 <?php 
 error_reporting(0);
 ini_set('display_errors', 0);
-include 'db.php';
+include "/assets/database/db.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@ include 'db.php';
   <title>
       Campi - the most comprehensive resource for beautiful private campsites.
     </title>
+    
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

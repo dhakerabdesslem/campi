@@ -1,6 +1,6 @@
 <?php
 
-include 'db.php';
+include "/assets/database/db.php";
 
 if (isset($_POST) && $_POST) {
     $name = $_POST['name'];

@@ -2,43 +2,10 @@
 session_start();
 error_reporting(0);
 ini_set("display_errors", 0);
-include "assets/database/db.php";
-if (isset($_POST) && $_POST) {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
-  $result = mysqli_query($db, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    while($res = mysqli_fetch_assoc($result)) {
-    $_SESSION['id'] = $res['username'];
-    }
-    header("Location: /");
-    die();
-  
-  }else{
-  $err = "true";
-  } 
-  }
+include "/assets/database/db.php";
 $categoriessql = "SELECT * FROM categories";
 $categories = mysqli_query($db, $categoriessql);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-      Campi.tn - the most comprehensive resource for beautiful private campsites.
-    </title>
-    <link rel="icon" type="image/png" href="/assets/images/logo.png" />
-    <link href="/assets/css/style.css" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-
-</head>
-<body>
 <nav class="topBar">
     <div class="container">
       <ul class="topBarNav pull-right">
@@ -112,7 +79,7 @@ $categories = mysqli_query($db, $categoriessql);
       <a href="/"> <img width="" src="/assets/images/logo.png" alt="campi"></a>
     </div>
     <div class="col-sm-7 vertical-align text-center">
-      <form method="get" action="/">
+      <form>
         <div class="row grid-space-1">
           <div class="col-sm-6">
             <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
@@ -168,33 +135,7 @@ $categories = mysqli_query($db, $categoriessql);
           </div>
         </nav>
 
-
-<div class="container">    
-<?php 
-  if($err == 'true') {
-    echo '<center><div class="alert alert-warning">Login Error!!</div></center>';
-  }
-     ?>
-<form method="post" action="login.php">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-    <small id="passwordHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
-
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
-</div>
-<script type="text/javascript">
+  <script type="text/javascript">
     ! function($, n, e) {
       var o = $();
       $.fn.dropdownHover = function(e) {
@@ -242,5 +183,3 @@ $categories = mysqli_query($db, $categoriessql);
       })
     }(jQuery, this);
   </script>
-</body>
-</html>

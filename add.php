@@ -2,7 +2,7 @@
 // error_reporting(1);
 // ini_set('display_errors', 1);
 
-include 'db.php';
+include "/assets/database/db.php";
 
 if (isset($_POST) && $_POST) {
     $name = $_POST['name'];
