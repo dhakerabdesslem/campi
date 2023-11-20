@@ -124,7 +124,6 @@ $categories = mysqli_query($db, $categoriessql);
 </div>
 </div>
     
-    
 <nav class="navbar navbar-main navbar-default" role="navigation" style="opacity: 1;">
           <div class="container">
             <div class="navbar-header">
