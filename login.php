@@ -60,7 +60,10 @@ $categories = mysqli_query($db, $categoriessql);
           <ul class="dropdown-menu w-150" role="menu">
           <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
               echo '<li><a href="logout.php">LogOut</a>
+              
             </li>';
+            header("Location: /");
+
           } else {
               echo '<li><a href="login.php">Login</a>
             </li>';
