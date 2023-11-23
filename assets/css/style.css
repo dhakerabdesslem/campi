@@ -36,12 +36,14 @@
   padding: 0;
   list-style-type: none;
 }
+
 .topBar ul.topBarNav li {
   position: relative;
   display: inline-block;
   margin-right: -4px;
   border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 .topBar ul.topBarNav li:last-child {
   border-right: none;
 }

@@ -45,6 +45,7 @@
 .topBar ul.topBarNav li:last-child {
   border-right: none;
 }
+
 .topBar ul.topBarNav li a {
   display: block;
   padding-left: 12px;
