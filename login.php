@@ -60,6 +60,5 @@ if (isset($_POST) && $_POST) {
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
-
 </body>
 </html>
