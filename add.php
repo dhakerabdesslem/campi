@@ -25,6 +25,7 @@ if (isset($_POST) && $_POST) {
 header("Location: /");
 
 
+
 ?>
 <script type="text/javascript">
         if (window.history.replaceState) {

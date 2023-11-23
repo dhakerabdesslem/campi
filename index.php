@@ -74,7 +74,6 @@ $result = mysqli_query($db, $sql);
               <div class="form-group">
                 <label for="description" class="col-form-label">Description :</label>
                 <textarea class="form-control"  name="description" rows="5" id="description" required></textarea>
-
               </div>
               <div class="form-group">
                 <label for="prix" class="col-form-label">Prix :</label>

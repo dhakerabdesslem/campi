@@ -32,7 +32,7 @@ $result = mysqli_query($db, $sql);
         ?>
     <option value="<?= $res['name']?>"><?= $res['name']?></option>
     <?php }}?>
-  </select>
+  </select> 
 </div>
     <button type="submit" class="btn btn-default">Delete</button>
   </form>
