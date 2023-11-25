@@ -91,6 +91,7 @@ $result = mysqli_query($db, $sql);
     <option value="info">info</option>
     <option value="primary">primary</option>
   </select>
+  
 </div>
 
               <div class="modal-footer">
