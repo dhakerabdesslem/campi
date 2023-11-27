@@ -88,7 +88,6 @@ $result = mysqli_query($db, $sql);
                 <select class="form-control" id="type" name="type">
     <option value="success">success</option>
     <option value="danger">danger</option>
-    
     <option value="info">info</option>
     <option value="primary">primary</option>
   </select>
