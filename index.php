@@ -32,11 +32,11 @@ $result = mysqli_query($db, $sql);
 <body>
 <?php include "./navbar.php";?>
 <section class="py-5">
-<?php if (mysqli_num_rows($result) > 0) {
-        while ($res = mysqli_fetch_assoc($result)) { ?>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
+                    <?php if (mysqli_num_rows($result) > 0) {
+        while ($res = mysqli_fetch_assoc($result)) { ?>
                         <div class="card h-100">
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <img class="card-img-top" src="<?= $res["image"] ?>" alt="<?= $res["name"] ?>" />
@@ -55,9 +55,10 @@ $result = mysqli_query($db, $sql);
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php }
+                        <?php }
     } ?>
+                    </div>
+
         </section>
 </body>
 </html>
