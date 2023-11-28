@@ -16,9 +16,10 @@ if (isset($_POST) && $_POST) {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-
+    $imagedata = file_get_contents($target_file);
+    $base64 = base64_encode($imagedata);
     $sql = "INSERT INTO produits (name, description, prix,image, categorie)
-    VALUES ('$name', '$description','$prix', '$target_file', '$categorie')";
+    VALUES ('$name', '$description','$prix', '$base64', '$categorie')";
     $X = mysqli_query($db, $sql);
 
   }
