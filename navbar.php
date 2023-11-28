@@ -125,10 +125,8 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Page <i class="fa fa-angle-down ml-5"></i></a>
                   <ul class="dropdown-menu dropdown-menu-left">
-                    <li><a href="about.php">About Us</a></li>
                     <li><a href="register.php">Register</a></li>
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="passwordrecovery.php">Password Recovery</a></li>
                   </ul>
                 </li>
               
