@@ -86,6 +86,14 @@
           <div class="col-sm-3">
             <select class="form-control input-lg" name="category">
               <option value="all">All Categories</option>
+              <?php
+              $categoriessql = "SELECT * FROM categories";
+              $categories = mysqli_query($db, $categoriessql);
+              if (mysqli_num_rows($categories) > 0) {
+        while ($categoriesres = mysqli_fetch_assoc($categories)) { ?>
+              <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
+              <?php }
+    } ?>
             </select>
           </div>
           <div class="col-sm-3">

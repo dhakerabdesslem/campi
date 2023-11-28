@@ -21,7 +21,6 @@ if (isset($_POST) && $_POST) {
     $X = mysqli_query($db, $sql);
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,10 +55,16 @@ if (isset($_POST) && $_POST) {
   <div class="form-group">
   <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
     <select class="form-control" id="categorie" name="categorie">
-    <option value="success">success</option>
-    <option value="danger">danger</option>
-    <option value="info">info</option>
-    <option value="primary">primary</option>
+    <option value="0">Select categorie</option>
+    <?php
+              $categoriessql = "SELECT * FROM categories";
+              $categories = mysqli_query($db, $categoriessql);
+              if (mysqli_num_rows($categories) > 0) {
+        while ($categoriesres = mysqli_fetch_assoc($categories)) { ?>
+              <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
+              <?php }
+    } ?>
+            </select>
   </select>
   </div>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
