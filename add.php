@@ -9,15 +9,15 @@ if (isset($_POST) && $_POST) {
     $description = $_POST['description'];
     $image = $_POST['image'];
     $prix = $_POST['prix'];
-    $type = $_POST['type'];
+    $categorie = $_POST['categorie'];
     $target_dir = "./assets/images/produits/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
-    $sql = "INSERT INTO produits (name, description, prix,image, type)
-    VALUES ('$name', '$description','$prix', '$target_file', '$type')";
+    $sql = "INSERT INTO produits (name, description, prix,image, categorie)
+    VALUES ('$name', '$description','$prix', '$target_file', '$categorie')";
     $X = mysqli_query($db, $sql);
 }
 
@@ -54,8 +54,8 @@ if (isset($_POST) && $_POST) {
   <input type="file" id="image" class="form-control" name="image" accept="image/png, image/jpeg" aria-describedby="imgHelp" value="" required>
   </div>
   <div class="form-group">
-  <label for="image" aria-describedby="typeHelp">Select Type :</label>
-    <select class="form-control" id="type" name="type">
+  <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
+    <select class="form-control" id="categorie" name="categorie">
     <option value="success">success</option>
     <option value="danger">danger</option>
     <option value="info">info</option>
