@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 include "./assets/database/db.php";
 
 if (isset($_POST) && $_POST) {
+  if($_POST['categorie'] != '0'){
     $name = $_POST['name'];
     $description = $_POST['description'];
     $image = $_POST['image'];
@@ -19,6 +20,10 @@ if (isset($_POST) && $_POST) {
     $sql = "INSERT INTO produits (name, description, prix,image, categorie)
     VALUES ('$name', '$description','$prix', '$target_file', '$categorie')";
     $X = mysqli_query($db, $sql);
+
+  }else{
+  $err = "true";
+  }
 }
 
 ?>
@@ -65,8 +70,12 @@ if (isset($_POST) && $_POST) {
               <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
               <?php }
     } ?>
-            </select>
   </select>
+  <?php 
+  if($err == 'true') {
+    echo '<small id="categorieHelp" class="form-text text-muted">Select à categorie.</small>';
+  }
+     ?>
   </div>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
 </form>
