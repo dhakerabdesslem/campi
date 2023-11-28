@@ -87,12 +87,11 @@
             <select class="form-control input-lg" name="category">
               <option value="all">All Categories</option>
               <?php
-              include "./assets/database/db.php";
-              $categoriessql = "SELECT * FROM categories";
+              $categoriessql = "SELECT * FROM `categories`";
               $categories = mysqli_query($db, $categoriessql);
               if (mysqli_num_rows($categories) > 0) {
         while ($rescategories = mysqli_fetch_assoc($categories)) { ?>
-              <option value="<?= $rescategories["id"] ?>"><?= $rescategories["name"] ?></option>
+              <option value="<?php echo($rescategories["id"]) ?>"><?php echo($rescategories["name"]) ?></option>
               <?php }
     } ?>
             </select>
