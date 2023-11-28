@@ -60,7 +60,7 @@ if (isset($_POST) && $_POST) {
   <div class="form-group">
   <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
     <select class="form-control" id="categorie" name="categorie" required>
-    <option>Select categorie</option>
+    <option value="0" disabled>Select categorie</option>
   
     <?php
               $categoriessql = "SELECT * FROM categories";
