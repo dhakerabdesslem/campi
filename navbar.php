@@ -5,10 +5,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-<?php
-$categoriessql = "SELECT * FROM categories";
-$categories = mysqli_query($db, $categoriessql);
-?>
 <nav class="topBar">
     <div class="container">
       <ul class="topBarNav pull-right">
@@ -91,6 +87,8 @@ $categories = mysqli_query($db, $categoriessql);
             <select class="form-control input-lg" name="category">
               <option value="all">All Categories</option>
               <?php
+              $categoriessql = "SELECT * FROM categories";
+              $categories = mysqli_query($db, $categoriessql);
               if (mysqli_num_rows($categories) > 0) {
         while ($categoriesres = mysqli_fetch_assoc($categories)) { ?>
               <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
