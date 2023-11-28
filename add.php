@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 include "./assets/database/db.php";
 
 if (isset($_POST) && $_POST) {
-  if($_POST['categorie'] != '0'){
+  if($_POST['categorie'] != ''){
     $name = $_POST['name'];
     $description = $_POST['description'];
     $image = $_POST['image'];
@@ -21,8 +21,6 @@ if (isset($_POST) && $_POST) {
     VALUES ('$name', '$description','$prix', '$target_file', '$categorie')";
     $X = mysqli_query($db, $sql);
 
-  }else{
-  $err = "true";
   }
 }
 
@@ -60,7 +58,7 @@ if (isset($_POST) && $_POST) {
   <div class="form-group">
   <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
     <select class="form-control" id="categorie" name="categorie" required>
-    <option value="0" disabled selected>Select categorie</option>
+    <option value="" hidden>Select categorie</option>
   
     <?php
               $categoriessql = "SELECT * FROM categories";
@@ -71,11 +69,6 @@ if (isset($_POST) && $_POST) {
               <?php }
     } ?>
   </select>
-  <?php 
-  if($err == 'true') {
-    echo '<small id="categorieHelp" class="form-text text-muted">Select à categorie.</small>';
-  }
-     ?>
   </div>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
 </form>
