@@ -90,8 +90,8 @@
               $categoriessql = "SELECT * FROM categories";
               $categories = mysqli_query($db, $categoriessql);
               if (mysqli_num_rows($categories) > 0) {
-        while ($categoriesres = mysqli_fetch_assoc($categories)) { ?>
-              <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
+        while ($rescategories = mysqli_fetch_assoc($categories)) { ?>
+              <option value="<?= $rescategories["id"] ?>"><?= $rescategories["name"] ?></option>
               <?php }
     } ?>
             </select>
