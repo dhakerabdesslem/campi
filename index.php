@@ -27,7 +27,6 @@ $result = mysqli_query($db, $sql);
       Campi.tn - the most comprehensive resource for beautiful private campsites.
     </title>
     <link href="./assets/css/serve.css" rel="stylesheet">
-
 </head>
 <body>
 <?php include "./navbar.php";?>
