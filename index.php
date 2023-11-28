@@ -32,7 +32,7 @@ $result = mysqli_query($db, $sql);
     <?php if (mysqli_num_rows($result) > 0) {
         while ($res = mysqli_fetch_assoc($result)) { ?>
     <div class="col-sm-4">
-      <div class="panel panel-info">
+      <div class="panel panel-danger">
         <div class="panel-heading"><?= $res["name"] ?></div>
         <div class="panel-body"><img src="<?= $res[
             "image"
