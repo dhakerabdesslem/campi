@@ -56,6 +56,7 @@ if (isset($_POST) && $_POST) {
   <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
     <select class="form-control" id="categorie" name="categorie">
     <option value="0">Select categorie</option>
+  
     <?php
               $categoriessql = "SELECT * FROM categories";
               $categories = mysqli_query($db, $categoriessql);
