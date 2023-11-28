@@ -59,9 +59,7 @@ if (isset($_POST) && $_POST) {
   </div>
   <div class="form-group">
   <label for="categorie" aria-describedby="categorieHelp">Select categorie :</label>
-    <select class="form-control" id="categorie" name="categorie" required>
-    <option value="0" disabled>Select categorie</option>
-  
+    <select class="form-control" id="categorie" name="categorie" required>  
     <?php
               $categoriessql = "SELECT * FROM categories";
               $categories = mysqli_query($db, $categoriessql);
