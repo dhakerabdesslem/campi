@@ -9,7 +9,7 @@ if (isset($_POST) && $_POST) {
     $description = $_POST['description'];
     $image = $_POST['image'];
     $prix = $_POST['prix'];
-    $cate = $_POST['type'];
+    $type = $_POST['type'];
     $target_dir = "./assets/images/produits/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
