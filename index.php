@@ -26,11 +26,12 @@ $result = mysqli_query($db, $sql);
   <title>
       Campi.tn - the most comprehensive resource for beautiful private campsites.
     </title>
-    <link href="./assets/css/stylee.css" rel="stylesheet">
+    <link href="./assets/css/css3.css" rel="stylesheet">
 
 </head>
 <body>
 <?php include "./navbar.php";?>
+<div class="prodacts">
 <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -233,6 +234,7 @@ $result = mysqli_query($db, $sql);
                 </div>
             </div>
         </section>
+        </div>
 <div class="container">    
   <div class="row">
     <?php if (mysqli_num_rows($result) > 0) {
