@@ -50,8 +50,8 @@ $result = mysqli_query($db, $sql);
                                         <div class="bi-star-fill"></div>
                                         <div class="bi-star-fill"></div>
                                     </div>
-                                    <span class="text-muted text-decoration-line-through"><?= intval($res["prix"])+15; ?></span>
-                                    <?= $res["prix"] ?>
+                                    <span class="text-muted text-decoration-line-through"><?= intval($res["prix"])+15; ?> TND</span>
+                                    <?= $res["prix"] ?> TND
                                 </div>
                             </div>
                         </div>
