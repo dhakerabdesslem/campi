@@ -8,6 +8,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) < 1) {
+        header("Location: /");
+    }
 }else{
     header("Location: /");
 }
@@ -28,15 +31,24 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-               <?php if (mysqli_num_rows($result) > 0) {
-               while ($res = mysqli_fetch_assoc($result)) {?>
+               <?php 
+               while ($res = mysqli_fetch_assoc($result)) {
+                $sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100)); ?>
+                ?>
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?= $res["image"] ?>" alt="<?= $res["name"] ?>" /></div>
                     <div class="col-md-6">
+                            <?php if ($res['sale'] != 0) { ?>
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <?php } ?>
                         <div class="small mb-1"><?= $res["id"] ?></div>
                         <h1 class="display-5 fw-bolder"><?= $res["name"] ?></h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$45.00</span>
-                            <span>$40.00</span>
+                        <?php if ($res['sale'] != 0) { ?>
+                            <span class="text-decoration-line-through"><?= $res['prix']?>TND</span>
+                            <span><?= $sale?>TND</span>
+                            <?php }else{ ?>
+                                <span><?= $res['prix']?>TND</span>
+                        <?php } ?>
                         </div>
                         <p class="lead"><?= $res["description"] ?></p>
                         <div class="d-flex">
@@ -47,9 +59,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
-                    <?php }}else{
-                            header("Location: /");
-                        }?>
+                    <?php }?>
     </div>
                 </div>
             </div>
