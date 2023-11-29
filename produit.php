@@ -39,7 +39,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             <?php if ($res['sale'] != 0) { ?>
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <?php } ?>
-                        <div class="small mb-1"><?= $res["id"] ?></div>
                         <h1 class="display-5 fw-bolder"><?= $res["name"] ?></h1>
                         <div class="fs-5 mb-5">
                         <?php if ($res['sale'] != 0) { ?>
