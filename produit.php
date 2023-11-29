@@ -34,7 +34,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                <?php 
                while ($res = mysqli_fetch_assoc($result)) {
                 $sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100)); ?>
-                ?>
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?= $res["image"] ?>" alt="<?= $res["name"] ?>" /></div>
                     <div class="col-md-6">
                             <?php if ($res['sale'] != 0) { ?>
