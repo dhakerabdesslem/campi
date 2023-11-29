@@ -16,17 +16,6 @@ if (isset($_POST) && $_POST) {
   }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-      Campi.tn - the most comprehensive resource for beautiful private campsites.
-    </title>
-
-</head>
-<body>
 <?php include "./navbar.php";?>
 
 

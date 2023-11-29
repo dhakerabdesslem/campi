@@ -15,18 +15,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     header("Location: /");
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-      Campi.tn - the most comprehensive resource for beautiful private campsites.
-    </title>
-    <link href="./assets/css/style2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-</head>
-<body>
 <?php include "./navbar.php";?>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">

@@ -11,14 +11,6 @@ if (isset($_POST) && $_POST) {
 $sql = "SELECT * FROM produits";
 $result = mysqli_query($db, $sql);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Delete produit | campi</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
 <?php include "./navbar.php";?>
 
 <div class="container">
