@@ -7,13 +7,8 @@ include "./assets/database/db.php";
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $sql = "SELECT * FROM produits where id='".$_GET['produit']".'";
     $result = mysqli_query($db, $sql);
-    if (mysqli_num_rows($result) == 0) {
-        header("Location: /");
-        die();
-    }
 }else{
     header("Location: /");
-    die();
 }
 ?>
 <!DOCTYPE html>
@@ -32,7 +27,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-               <?php while ($res = mysqli_fetch_assoc($result)) {?>
+               <?php if (mysqli_num_rows($result) > 0) {
+               while ($res = mysqli_fetch_assoc($result)) {?>
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?= $res["image"] ?>" alt="<?= $res["name"] ?>" /></div>
                     <div class="col-md-6">
                         <div class="small mb-1"><?= $res["id"] ?></div>
@@ -50,7 +46,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
-                    <?php }?>
+                    <?php }}else{
+                            header("Location: /");
+                        }?>
     </div>
                 </div>
             </div>
