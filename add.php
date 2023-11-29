@@ -11,6 +11,7 @@ if (isset($_POST) && $_POST) {
     $image = $_POST['image'];
     $prix = $_POST['prix'];
     $categorie = $_POST['categorie'];
+    $sale = intval($_POST['sale']);
     $target_dir = "./assets/images/produits/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -67,6 +68,30 @@ if (isset($_POST) && $_POST) {
               <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
               <?php }
     } ?>
+  </select>
+  </div>
+  <div class="form-group">
+  <label for="sale" aria-describedby="saleHelp">Select sale :</label>
+    <select class="form-control" id="categorie" name="categorie">
+    <option value="0">Select sale</option>
+    <option value="10">10%</option>
+    <option value="15">15%</option>
+    <option value="20">20%</option>
+    <option value="25">25%</option>
+    <option value="30">30%</option>
+    <option value="35">35%</option>
+    <option value="40">40%</option>
+    <option value="45">45%</option>
+    <option value="50">50%</option>
+    <option value="55">55%</option>
+    <option value="60">60%</option>
+    <option value="65">65%</option>
+    <option value="70">70%</option>
+    <option value="75">75%</option>
+    <option value="80">80%</option>
+    <option value="85">85%</option>
+    <option value="90">90%</option>
+    <option value="95">95%</option>
   </select>
   </div>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
