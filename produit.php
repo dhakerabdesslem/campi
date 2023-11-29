@@ -86,7 +86,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 </div>
             </div>
         </section>
-        <?php }>
+        <?php }?>
         <?php include "./footer.php";?>
 <?php
 
