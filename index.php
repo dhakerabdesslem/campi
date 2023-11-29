@@ -17,7 +17,6 @@ $sql = "SELECT * FROM produits";
 $result = mysqli_query($db, $sql);
 }
 
-$sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100));
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,8 @@ $sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100));
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php if (mysqli_num_rows($result) > 0) {
-        while ($res = mysqli_fetch_assoc($result)) { ?>
+        while ($res = mysqli_fetch_assoc($result)) {
+          $sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100)); ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                         <?php if ($res['sale'] != 0) { ?>
