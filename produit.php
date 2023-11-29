@@ -51,9 +51,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
             </div>
         </section>
         <?php 
-               while ($res = mysqli_fetch_assoc($result)) {
-                $categorie = $res['categorie'];
-                $sqlrelated = "SELECT * FROM produits where categorie='$categorie'";
+                $sqlrelated = "SELECT * FROM produits";
                 $resultrelated = mysqli_query($db, $sqlrelated);
                 if (mysqli_num_rows($resultrelated) > 0) {
                 ?>
@@ -92,7 +90,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 </div>
             </div>
         </section>
-        <?php } }}?>
+        <?php } }?>
         <?php include "./footer.php";?>
 <?php
 
