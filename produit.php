@@ -7,7 +7,14 @@ include "./assets/database/db.php";
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $sql = "SELECT * FROM produits where id=$_GET['produit']";
     $result = mysqli_query($db, $sql);
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) == 0) {
+        header("Location: /");
+        die();
+    }
+}else{
+    header("Location: /");
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,20 +50,12 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
-                    <?php }
-    ?>
+                    <?php }?>
     </div>
                 </div>
             </div>
         </section>
 <?php
-    }else{
-        header("Location: /");
-        die();
-    }
-}else{
-    header("Location: /");
-    die();
-}
+
 
 ?>
