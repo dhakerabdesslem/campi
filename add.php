@@ -38,7 +38,7 @@ if (isset($_POST) && $_POST) {
   </div>
   <div class="form-group">
   <label for="prix">Prix :</label>
-  <input type="number" class="form-control" id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
+  <input type="text" class="form-control" id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
   </div>
   <div class="form-group">
   <label for="image" >Select image :</label>
@@ -60,27 +60,8 @@ if (isset($_POST) && $_POST) {
   </select>
   </div>
   <div class="form-group">
-  <label for="sale" aria-describedby="saleHelp">Select sale :</label>
-    <select class="form-control" id="sale" name="sale">
-    <option value="0">Select sale</option>
-    <option value="10">10%</option>
-    <option value="15">15%</option>
-    <option value="20">20%</option>
-    <option value="25">25%</option>
-    <option value="30">30%</option>
-    <option value="35">35%</option>
-    <option value="40">40%</option>
-    <option value="45">45%</option>
-    <option value="50">50%</option>
-    <option value="55">55%</option>
-    <option value="60">60%</option>
-    <option value="65">65%</option>
-    <option value="70">70%</option>
-    <option value="75">75%</option>
-    <option value="80">80%</option>
-    <option value="85">85%</option>
-    <option value="90">90%</option>
-    <option value="95">95%</option>
+  <label for="sale" aria-describedby="saleHelp">sale :</label>
+  <input type="number" class="form-control" id="sale" placeholder="Enter sale" aria-describedby="saleHelp" placeholder="Enter sale" name="sale" value="0">
   </select>
   </div>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
