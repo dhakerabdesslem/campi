@@ -58,7 +58,7 @@ $sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100));
                                     <span class="text-muted text-decoration-line-through"><?= $res["prix"];?>TND</span>
                                     <?= $sale?>TND
                                     <?php }else{ ?>
-                                    ?= $res['prix']?>TND
+                                    <?= $res['prix']?>TND
                                    <?php } ?>
                                 </div>
                             </div>
