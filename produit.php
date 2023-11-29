@@ -44,7 +44,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                         </div>
                     </div>
                     <?php }
-    } ?>
+    ?>
     </div>
                 </div>
             </div>
