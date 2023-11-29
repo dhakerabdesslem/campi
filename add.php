@@ -9,7 +9,7 @@ if (isset($_POST) && $_POST) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $image = $_POST['image'];
-    $prix = $_POST['prix'];
+    $prix = intval($_POST['prix']);
     $categorie = $_POST['categorie'];
     $sale = intval($_POST['sale']);
     $target_dir = "./assets/images/produits/";
@@ -18,7 +18,7 @@ if (isset($_POST) && $_POST) {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
-    VALUES ('$name', '$description','$prix', '$target_file', '$categorie',$sale)";
+    VALUES ('$name', '$description',$prix, '$target_file', '$categorie',$sale)";
     $X = mysqli_query($db, $sql);
 
   }
