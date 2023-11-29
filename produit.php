@@ -53,8 +53,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
         <?php
         $sqlRelated = "SELECT * FROM produits";
         $resultRelated = mysqli_query($db, $sqlsqlRelated);
-        ?>
-        <?php if (mysqli_num_rows($result) > 0) { ?>
+        if (mysqli_num_rows($result) > 0) { ?>
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
@@ -65,7 +64,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                         <div class="card h-100">
                         <?php if ($resRelated['sale'] != 0) { ?>
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <?php } ?>
+                        <?php } ?>
                             <img class="card-img-top" src="<?= $resRelated["image"] ?>" alt="<?= $resRelated["name"] ?>" />
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -83,10 +82,11 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
-        <?php }}>
+        <?php }>
         <?php include "./footer.php";?>
 <?php
 
