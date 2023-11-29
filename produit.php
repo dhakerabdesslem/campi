@@ -22,6 +22,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
       Campi.tn - the most comprehensive resource for beautiful private campsites.
     </title>
     <link href="./assets/css/style2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
 <body>
 <?php include "./navbar.php";?>
