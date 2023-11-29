@@ -49,7 +49,7 @@ if (isset($_POST) && $_POST) {
   </div>
   <div class="form-group">
   <label for="prix">Prix :</label>
-  <input type="text" class="form-control" id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
+  <input type="number" class="form-control" id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
   </div>
   <div class="form-group">
   <label for="image" >Select image :</label>
