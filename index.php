@@ -16,6 +16,8 @@ if ((isset($_GET['keyword']) && $_GET['keyword']) && (isset($_GET['category']) &
 $sql = "SELECT * FROM produits";
 $result = mysqli_query($db, $sql);
 }
+
+$sale = $res["prix"] - ($res["prix"] * ($res["sale"] / 100));
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +40,9 @@ $result = mysqli_query($db, $sql);
         while ($res = mysqli_fetch_assoc($result)) { ?>
                     <div class="col mb-5">
                         <div class="card h-100">
+                        <?php if ($res['sale'] != 0) { ?>
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <?php } ?>
                             <img class="card-img-top" src="<?= $res["image"] ?>" alt="<?= $res["name"] ?>" />
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -50,8 +54,10 @@ $result = mysqli_query($db, $sql);
                                         <div class="bi-star-fill"></div>
                                         <div class="bi-star-fill"></div>
                                     </div>
-                                    <span class="text-muted text-decoration-line-through"><?= intval($res["prix"])+15;?>TND</span>
-                                    <?= $res["prix"]?>TND
+                                    <?php if ($res['sale'] != 0) { ?>
+                                    <span class="text-muted text-decoration-line-through"><?= $res["prix"];?>TND</span>
+                                    <?php } ?>
+                                    <?= $sale?>TND
                                 </div>
                             </div>
                         </div>
