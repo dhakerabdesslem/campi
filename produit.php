@@ -43,6 +43,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
+                    <?php }
+    } ?>
+    </div>
                 </div>
             </div>
         </section>
