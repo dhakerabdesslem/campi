@@ -53,7 +53,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
         <?php 
                while ($res = mysqli_fetch_assoc($result)) {
                 $categorie = $res['categorie'];
-                $sqlrelated = "SELECT * FROM produits where categorie=".$categorie;
+                $sqlrelated = "SELECT * FROM produits where categorie='".$categorie."'";
                 $resultrelated = mysqli_query($db, $sqlrelated);
                 if (mysqli_num_rows($resultrelated) > 0) {
                 ?>
