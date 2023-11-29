@@ -53,7 +53,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
         <?php
         $sqlRelated = "SELECT * FROM produits";
         $resultRelated = mysqli_query($db, $sqlsqlRelated);
-        if (mysqli_num_rows($result) > 0) { ?>
+        if (mysqli_num_rows($resultRelated) > 0) { ?>
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
