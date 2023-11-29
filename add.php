@@ -38,8 +38,7 @@ if (isset($_POST) && $_POST) {
   </div>
   <div class="form-group">
   <label for="prix">Prix :</label>
-  <input type="text" class="form-control" onkeypress='return event.charCode != 46 && event.charCode > 31 
-            && (event.charCode < 48 || event.charCode > 57' id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
+  <input type="text" class="form-control" id="prix" placeholder="Enter prix" aria-describedby="prixHelp" placeholder="Enter prix" name="prix" required>
   </div>
   <div class="form-group">
   <label for="image" >Select image :</label>
