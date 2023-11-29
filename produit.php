@@ -5,7 +5,7 @@ ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
-    $sql = "SELECT * FROM produits where id='".$_GET['produit']".'";
+    $sql = "SELECT * FROM produits where id=30";
     $result = mysqli_query($db, $sql);
 }else{
     header("Location: /");
