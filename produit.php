@@ -62,8 +62,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php while ($resrelated = mysqli_fetch_assoc($resultrelated)) {
-                    for ($i = 0; $i <= 4; $i++) {
-          $sale = $resrelated["prix"] - ($resrelated["prix"] * ($resrelated["sale"] / 100)); ?>
+          $salerelated= $resrelated["prix"] - ($resrelated["prix"] * ($resrelated["sale"] / 100)); ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                         <?php if ($resrelated['sale'] != 0) { ?>
@@ -82,10 +81,10 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                     </div>
                                     <?php if ($res['sale'] != 0) { ?>
                                     <span class="text-muted text-decoration-line-through"><?= $resrelated["prix"];?>TND</span>
-                                    <?= $sale?>TND
+                                    <?= $salerelated?>TND
                                     <?php }else{ ?>
                                     <?= $resrelated['prix']?>TND
-                                   <?php } } die();?>
+                                   <?php }?>
                                 </div>
                             </div>
                         </div>
