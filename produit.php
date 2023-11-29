@@ -50,47 +50,43 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 </div>
             </div>
         </section>
-        <?php 
-                $sqlrelated = "SELECT * FROM produits";
-                $resultrelated = mysqli_query($db, $sqlrelated);
-                if (mysqli_num_rows($resultrelated) > 0) {
-                ?>
+        <?php
+        $sqlRelated = "SELECT * FROM produits";
+        $resultRelated = mysqli_query($db, $sqlsqlRelated);
+        ?>
+        <?php if (mysqli_num_rows($result) > 0) { ?>
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php while ($resrelated = mysqli_fetch_assoc($resultrelated)) {
-          $salerelated= $resrelated["prix"] - ($resrelated["prix"] * ($resrelated["sale"] / 100)); ?>
+                <?php while ($resRelated = mysqli_fetch_assoc($resultRelated)) {
+          $saleRelated = $resRelated["prix"] - ($resRelated["prix"] * ($resRelated["sale"] / 100)); ?>
                     <div class="col mb-5">
                         <div class="card h-100">
-                        <?php if ($resrelated['sale'] != 0) { ?>
+                        <?php if ($resRelated['sale'] != 0) { ?>
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <?php } ?>
-                            <img class="card-img-top" src="<?= $resrelated["image"] ?>" alt="<?= $resrelated["name"] ?>" />
+                            <img class="card-img-top" src="<?= $resRelated["image"] ?>" alt="<?= $resRelated["name"] ?>" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder"><?= $resrelated["name"] ?></h5>
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <?php if ($res['sale'] != 0) { ?>
-                                    <span class="text-muted text-decoration-line-through"><?= $resrelated["prix"];?>TND</span>
-                                    <?= $salerelated?>TND
+                                    <h5 class="fw-bolder"><?= $resRelated["name"] ?></h5>
+                                    <?php if ($resRelated['sale'] != 0) { ?>
+                                    <span class="text-muted text-decoration-line-through"><?= $resRelated['prix']?></span>
+                                    <?= $saleRelated ?>
                                     <?php }else{ ?>
-                                    <?= $resrelated['prix']?>TND
-                                   <?php }?>
+                                        <?= $resRelated['prix']?>TND
+                                        <?php } ?>
                                 </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?produit=<?= $resRelated['id']?>">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <?php } }?>
+        <?php }}>
         <?php include "./footer.php";?>
 <?php
 
