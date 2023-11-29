@@ -5,7 +5,7 @@ ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
-    $sql = "SELECT * FROM produits WHERE description LIKE '%".$_GET['keyword']."%' OR name LIKE '%".$_GET['keyword']."%' AND categorie LIKE '%".$_GET['category']."%'";
+    $sql = "SELECT * FROM produits";
     $result = mysqli_query($db, $sql);
 }else{
     header("Location: /");
