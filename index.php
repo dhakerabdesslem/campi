@@ -57,5 +57,6 @@ $result = mysqli_query($db, $sql);
 </div>
 
         </section>
+        <?php include "./footer.php";?>
 </body>
 </html>

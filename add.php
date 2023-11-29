@@ -86,10 +86,11 @@ if (isset($_POST) && $_POST) {
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
 </form>
 </div>
-</body>
-</html>
 <script type="text/javascript">
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
+<?php include "./footer.php";?>
+</body>
+</html>

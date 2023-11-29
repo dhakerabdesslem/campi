@@ -53,5 +53,6 @@ if (isset($_POST) && $_POST) {
   <button type="submit" class="btn btn-primary">Registr</button>
 </form>
 </div>
+<?php include "./footer.php";?>
 </body>
 </html>

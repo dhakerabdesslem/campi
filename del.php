@@ -35,5 +35,6 @@ $result = mysqli_query($db, $sql);
             window.history.replaceState(null, null, window.location.href);
         }
 </script>
+<?php include "./footer.php";?>
 </body>
 </html>
