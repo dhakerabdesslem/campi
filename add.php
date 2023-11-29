@@ -72,7 +72,7 @@ if (isset($_POST) && $_POST) {
   </div>
   <div class="form-group">
   <label for="sale" aria-describedby="saleHelp">Select sale :</label>
-    <select class="form-control" id="categorie" name="categorie">
+    <select class="form-control" id="sale" name="sale">
     <option value="0">Select sale</option>
     <option value="10">10%</option>
     <option value="15">15%</option>
