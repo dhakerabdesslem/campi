@@ -16,154 +16,31 @@
 <link rel="icon" type="image/png" href="./assets/images/logo.png" />
 </head>
 <body>
-
-
-<nav class="topBar">
-    <div class="container">
-      <ul class="topBarNav pull-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-money mr-5"></i>TND<i class="fa fa-angle-down ml-5"></i>
-          </a>
-          <ul class="dropdown-menu w-100" role="menu">
-            <li><a href="#"><i class="fa fa-money mr-5"></i>TND</a>
-            </li>
-            <li class=""><a href="#"><i class="fa fa-eur mr-5"></i>EUR</a>
-            </li>
-            <li><a href="#"><i class="fa fa-usd mr-5"></i>USD</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
-          <ul class="dropdown-menu w-150" role="menu">
-          <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
-              echo '<li><a href="logout.php">LogOut</a>
-            </li>';
-          } else {
-              echo '<li><a href="login.php">Login</a>
-            </li>';
-              echo '<li><a href="register.php">Create Account</a>
-            </li>';
-          } ?>
-          
-            <li class="divider"></li>
-            </li>
-            <li><a>My Cart</a>
-            </li>
-            <li><a>Checkout</a>
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-shopping-basket mr-5"></i> <span class="hidden-xs">
-                                Cart<sup class="text-primary">(0)</sup>
-                                <i class="fa fa-angle-down ml-5"></i>
-                            </span> </a>
-          <ul class="dropdown-menu cart w-250" role="menu">
-            <li>
-              <div class="cart-items">
-                <ol class="items">
-                <!--
-                    <li>
-                    <a href="#" class="product-image"> <img src="" class="img-responsive" alt="Sample Product"> </a>
-                    <div class="product-details">
-                      <div class="close-icon"> <a href="#"><i class="fa fa-close"></i></a> </div>
-                      <p class="product-name"> <a href="#">Lorem Ipsum dolor sit</a> </p> <strong>1</strong> x <span class="price text-primary">$29.99</span> </div>
-                  </li>
-                  -->
-                </ol>
-              </div>
-            </li>
-            <li>
-              <div class="cart-footer"> <a href="#" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>View
-					Cart</a> <a href="#" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a> </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="middleBar">
-    <div class="container">
-  <div class="row display-table">
-    <div class="col-sm-3 vertical-align text-left hidden-xs">
-      <a href="/"> <img width="" src="/assets/images/logo.png" alt="campi"></a>
-    </div>
-    <div class="col-sm-7 vertical-align text-center">
-      <form>
-        <div class="row grid-space-1">
-          <div class="col-sm-6">
-            <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
-         </div>
-          <div class="col-sm-3">
-            <select class="form-control input-lg" name="category">
-              <option value="all">All Categories</option>
-              <?php
-              $categoriessql = "SELECT * FROM categories";
-              $categories = mysqli_query($db, $categoriessql);
-              if (mysqli_num_rows($categories) > 0) {
-        while ($categoriesres = mysqli_fetch_assoc($categories)) { ?>
-              <option value="<?= $categoriesres["id"] ?>"><?= $categoriesres["name"] ?></option>
-              <?php }
-    } ?>
-            </select>
-          </div>
-          <div class="col-sm-3">
-            <input type="submit" class="btn btn-default btn-block btn-lg" value="Search">
-         </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-  
-  <script type="text/javascript">
-    ! function($, n, e) {
-      var o = $();
-      $.fn.dropdownHover = function(e) {
-        return "ontouchstart" in document ? this : (o = o.add(this.parent()), this.each(function() {
-          function t(e) {
-            o.find(":focus").blur(), h.instantlyCloseOthers === !0 && o.removeClass("open"), n.clearTimeout(c), i.addClass("open"), r.trigger(a)
-          }
-          var r = $(this),
-            i = r.parent(),
-            d = {
-              delay: 100,
-              instantlyCloseOthers: !0
-            },
-            s = {
-              delay: $(this).data("delay"),
-              instantlyCloseOthers: $(this).data("close-others")
-            },
-            a = "show.bs.dropdown",
-            u = "hide.bs.dropdown",
-            h = $.extend(!0, {}, d, e, s),
-            c;
-          i.hover(function(n) {
-            return i.hasClass("open") || r.is(n.target) ? void t(n) : !0
-          }, function() {
-            c = n.setTimeout(function() {
-              i.removeClass("open"), r.trigger(u)
-            }, h.delay)
-          }), r.hover(function(n) {
-            return i.hasClass("open") || i.is(n.target) ? void t(n) : !0
-          }), i.find(".dropdown-submenu").each(function() {
-            var e = $(this),
-              o;
-            e.hover(function() {
-              n.clearTimeout(o), e.children(".dropdown-menu").show(), e.siblings().children(".dropdown-menu").hide()
-            }, function() {
-              var t = e.children(".dropdown-menu");
-              o = n.setTimeout(function() {
-                t.hide()
-              }, h.delay)
-            })
-          })
-        }))
-      }, $(document).ready(function() {
-        $('[data-hover="dropdown"]').dropdownHover()
-      })
-    }(jQuery, this);
-  </script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
