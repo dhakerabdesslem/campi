@@ -19,6 +19,101 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 }
 ?>
 <?php include "./navbar.php";?>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+<style>
+    }
+.star-rating form {
+    display: none;
+}
+.star-rating .thanks-msg {
+    display: none;
+    font-size: 20px;
+    margin: 40px auto;
+    color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1411764705882353);
+    padding: 8px 20px;
+    border-left: 3px solid #4caf50;
+    border-radius: 20px;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating {
+    margin: 50px auto;
+    display: table;
+    width: 350px;
+}
+.star-rating label {
+    padding: 10px;
+    float: right;
+    font-size: 44px;
+    color: #eee;
+}
+.star-rating input:not(:checked) ~ label:hover,
+.star-rating input:not(:checked) ~ label:hover ~ label {
+    color: #ffc107;
+}
+.star-rating input:checked ~ label {
+    color: #ffc107;
+}
+.star-rating form .rating-reaction:before {
+    width: 100%;
+    float: left;
+    color: #ffc107;
+}
+.star-rating #rating-1:checked ~ form .rating-reaction:before {
+    content: "I hate it";
+}
+.star-rating #rating-2:checked ~ form .rating-reaction:before {
+    content: "I don't like it";
+}
+.star-rating #rating-3:checked ~ form .rating-reaction:before {
+    content: "It is good";
+}
+.star-rating #rating-4:checked ~ form .rating-reaction:before {
+    content: "I like it";
+}
+.star-rating #rating-5:checked ~ form .rating-reaction:before {
+    content: "I love it";
+}
+.star-rating input:checked ~ form {
+    border-top: 1px solid #ddd;
+    width: 100%;
+    padding-top: 15px;
+    margin-top: 15px;
+    display: inline-block;
+}
+.star-rating form .rating-reaction {
+    font-size: 24px;
+    float: left;
+    text-transform: capitalize;
+}
+.star-rating form .submit-rating {
+    border: none;
+    outline: none;
+    background: #795548;
+    color: #ffc107;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 5px 15px;
+    cursor: pointer;
+    float: right;
+}
+form .submit-rating:hover {
+    background-color: #333;
+}
+</style>
+<script>
+    const btn = document.querySelector(".submit-rating");
+const thanksmsg = document.querySelector(".thanks-msg");
+const starRating = document.querySelector(".star-input");
+// Success msg show/hide
+btn.onclick = () => {
+    starRating.style.display = "none";
+    thanksmsg.style.display = "table";
+    return false;
+};
+</script>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -48,7 +143,27 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
+                    <div class="star-rating">
+            <div class="thanks-msg">Thanks for your feedback !!!</div>
+            <div class="star-input">
+                <input type="radio" name="rating" id="rating-5">
+                <label for="rating-5" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="rating-4">
+                <label for="rating-4" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="rating-3">
+                <label for="rating-3" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="rating-2">
+                <label for="rating-2" class="fas fa-star"></label>
+                <input type="radio" name="rating" id="rating-1">
+                <label for="rating-1" class="fas fa-star"></label>
 
+                <!-- Rating Submit Form -->
+                <form>
+                    <span class="rating-reaction"></span>
+                    <button type="submit" class="submit-rating">Submit</button>
+                </form>
+            </div>
+        </div>
                     <?php }?>
     </div>
                 </div>
