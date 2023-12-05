@@ -25,7 +25,7 @@
                     <div class="col-md-5 my-auto">
                         <form role="search">
                             <div class="input-group">
-                                <input type="search" name="keyword" placeholder="Search your product" class="form-control" required/>
+                                <input type="search" name="keyword" placeholder="Recherchez votre produit" class="form-control" required/>
                                 <button class="btn bg-white" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
