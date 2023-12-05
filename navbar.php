@@ -98,9 +98,6 @@
         </li>
               <?php }
     } ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">New Arrivals</a>
-                        </li>
                     </ul>
                 </div>
             </div>
