@@ -6,11 +6,14 @@ include "./assets/database/db.php";
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
+    $categorie = intval($_GET['categorie']);
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) < 1) {
         header("Location: /");
     }
+    $sqlcat = "SELECT * FROM produits Where categorie=".$categorie." AND id != ".$id_produit;
+    $resultcat = mysqli_query($db, $sqlcat);
 }else{
     header("Location: /");
 }
@@ -50,35 +53,31 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 </div>
             </div>
         </section>
-        <?php
-        $sqlRelated = "SELECT * FROM produits";
-        $resultRelated = mysqli_query($db, $sqlsqlRelated);
-        if (mysqli_num_rows($resultRelated) > 0) { ?>
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php while ($resRelated = mysqli_fetch_assoc($resultRelated)) {
-          $saleRelated = $resRelated["prix"] - ($resRelated["prix"] * ($resRelated["sale"] / 100)); ?>
-                    <div class="col mb-5">
+                <?php while ($rescat = mysqli_fetch_assoc($resultcat)) {
+                $salecat = $rescat["prix"] - ($rescat["prix"] * ($rescat["sale"] / 100)); ?>
+                    <div class="col mb-5">      
                         <div class="card h-100">
-                        <?php if ($resRelated['sale'] != 0) { ?>
+                        <?php if ($rescat['sale'] != 0) { ?>
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <?php } ?>
-                            <img class="card-img-top" src="<?= $resRelated["image"] ?>" alt="<?= $resRelated["name"] ?>" />
+                            <?php } ?>
+                            <img class="card-img-top" src="<?= $rescat["image"] ?>" alt="<?= $rescat["name"] ?>" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder"><?= $resRelated["name"] ?></h5>
-                                    <?php if ($resRelated['sale'] != 0) { ?>
-                                    <span class="text-muted text-decoration-line-through"><?= $resRelated['prix']?></span>
-                                    <?= $saleRelated ?>
+                                    <h5 class="fw-bolder"><?= $rescat["name"] ?></h5>
+                                    <?php if ($rescat['sale'] != 0) { ?>
+                                    <span class="text-muted text-decoration-line-through"><?= $rescat["prix"];?></span>
+                                    <?= $salecat?>TND
                                     <?php }else{ ?>
-                                        <?= $resRelated['prix']?>TND
-                                        <?php } ?>
+                                    <?= $rescat['prix']?>TND
+                                   <?php } ?>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?produit=<?= $resRelated['id']?>">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="./produit.php?produit=<?= $res['id']?>&category=<?= $res['categorie']?>">View Produit</a></div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +85,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 </div>
             </div>
         </section>
-        <?php }?>
         <?php include "./footer.php";?>
 <?php
 
