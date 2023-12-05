@@ -6,12 +6,13 @@ include "./assets/database/db.php";
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
+    $category = intval($_GET['category']);
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) < 1) {
         header("Location: /");
     }
-    $sqlcat = "SELECT * FROM produits";
+    $sqlcat = "SELECT * FROM produits where categorie=".$category." AND id!=".$id_produit;
     $resultcat = mysqli_query($db, $sqlcat);
 }else{
     header("Location: /");
