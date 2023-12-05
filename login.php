@@ -10,7 +10,8 @@ if (isset($_POST) && $_POST) {
   $result = mysqli_query($db, $sql);
   if (mysqli_num_rows($result) > 0) {
     while($res = mysqli_fetch_assoc($result)) {
-    $_SESSION['id'] = $res['username'];
+    $_SESSION['id'] = $res['id'];
+    $_SESSION['name'] = $res['prenom'];
     }
     header("Location: /");
     die();
@@ -29,7 +30,7 @@ if (isset($_POST) && $_POST) {
   if($err == 'true') {
     echo '<center><div class="alert alert-warning">Login Error!!</div></center>';
   }
-     ?>
+  ?>
 <form method="post" action="login.php">
   <div class="form-group">
     <label for="email">Email address</label>
