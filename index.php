@@ -44,8 +44,12 @@ $result = mysqli_query($db, $sql);
                                     <?= $sale?>TND
                                     <?php }else{ ?>
                                     <?= $res['prix']?>TND
+                                    
                                    <?php } ?>
                                 </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="./produit.php?produit=<?= $res['id']?>&category=<?= $res['categorie']?>">View Produit</a></div>
                             </div>
                         </div>
                     </div>
