@@ -29,6 +29,15 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 6.25vmax;
+}
+@media (max-width: 992px) {
+  html {
+    font-size: 60px;
+  }
+}
+
 
 
 .wrapper {
