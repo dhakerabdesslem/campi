@@ -31,7 +31,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <?php } ?>
                         <h1 class="display-5 fw-bolder"><?= $res["name"] ?></h1>
-                        <div class="container d-flex justify-content-center mt-200">
                         <div class="fs-5 mb-5">
                         <?php if ($res['sale'] != 0) { ?>
                             <span class="text-decoration-line-through"><?= $res['prix']?>TND</span>
