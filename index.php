@@ -4,7 +4,10 @@ error_reporting(0);
 ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
-if ((isset($_GET['keyword']) && $_GET['keyword'])) {
+if ((isset($_GET['category']) && $_GET['category'])) {
+    $sql = "SELECT * FROM produits WHERE categorie='".$_GET['category']."'";
+    $result = mysqli_query($db, $sql);
+}else if ((isset($_GET['keyword']) && $_GET['keyword'])) {
     $sql = "SELECT * FROM produits WHERE description LIKE '%".$_GET['keyword']."%' OR name LIKE '%".$_GET['keyword']."%'";
     $result = mysqli_query($db, $sql);
 }else{
