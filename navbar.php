@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-5 my-auto">
                         <ul class="nav justify-content-end">
-                            
+                        <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <i class="fa fa-shopping-cart"></i> Cart (0)
@@ -45,6 +45,7 @@
                                     <i class="fa fa-heart"></i> Wishlist (0)
                                 </a>
                             </li>
+                         <?php } ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-user"></i>
