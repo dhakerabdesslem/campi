@@ -6,7 +6,6 @@ include "./assets/database/db.php";
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
-    $categorie = intval($_GET['categorie']);
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) < 1) {
@@ -61,8 +60,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                 $salecat = $rescat["prix"] - ($rescat["prix"] * ($rescat["sale"] / 100)); ?>
                     <div class="col mb-5">      
                         <div class="card h-100">
-                        <?php if ($rescat['sale'] != 0) { ?>
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <?php if ($rescat['sale'] != 0) { ?>
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <?php } ?>
                             <img class="card-img-top" src="<?= $rescat["image"] ?>" alt="<?= $rescat["name"] ?>" />
                             <div class="card-body p-4">
