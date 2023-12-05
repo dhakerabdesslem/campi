@@ -32,7 +32,7 @@ div.stars {
 }
 
  .mt-200{
-     margin-top:200px;  
+     margin-top:10px;  
  }
 
 input.star { display: none; }
