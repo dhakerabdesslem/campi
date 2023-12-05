@@ -25,7 +25,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 
 div.stars {
 
-  width: 270px;
+  width: 50px;
 
   display: inline-block;
 
@@ -47,7 +47,7 @@ label.star {
 
   font-size: 36px;
 
-  color: #4A148C;
+  color: #000;
 
   transition: all .2s;
 
@@ -105,9 +105,16 @@ label.star:before {
                             <?php } ?>
                         <h1 class="display-5 fw-bolder"><?= $res["name"] ?></h1>
                         <div class="container d-flex justify-content-center mt-200">
-	
 
-<div class="row">
+                        <div class="fs-5 mb-5">
+                        <?php if ($res['sale'] != 0) { ?>
+                            <span class="text-decoration-line-through"><?= $res['prix']?>TND</span>
+                            <span><?= $sale?>TND</span>
+                            <?php }else{ ?>
+                                <span><?= $res['prix']?>TND</span>
+                        <?php } ?>
+                        </div>
+                        <div class="row">
 
 	<div class="col-md-12">
 
@@ -147,14 +154,6 @@ label.star:before {
 </div>
 
 </div>
-                        <div class="fs-5 mb-5">
-                        <?php if ($res['sale'] != 0) { ?>
-                            <span class="text-decoration-line-through"><?= $res['prix']?>TND</span>
-                            <span><?= $sale?>TND</span>
-                            <?php }else{ ?>
-                                <span><?= $res['prix']?>TND</span>
-                        <?php } ?>
-                        </div>
                         <p class="lead"><?= $res["description"] ?></p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
