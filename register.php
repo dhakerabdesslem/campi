@@ -17,7 +17,18 @@ if (isset($_POST) && $_POST) {
 <?php include "./navbar.php";?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
+    .container .x {
+      background: #fff;
+      width: 400px;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 25px;
+      margin: 20px auto;
+      position: relative;
+      z-index: 1;
+      border-top: 5px solid #f5a81a;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    }
 
     h2 {
       font-size: 1.5em;
@@ -112,7 +123,7 @@ if (isset($_POST) && $_POST) {
       background: #d17f13;
     }
   </style>
-  <div class="container">
+  <div class="container x">
     <h2>Registration Form</h2>
     <form action="./register.php" method="post">
       <div class="input-field">
