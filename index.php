@@ -4,14 +4,9 @@ error_reporting(0);
 ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
-if ((isset($_GET['keyword']) && $_GET['keyword']) && (isset($_GET['category']) && $_GET['category'])) {
-  if($_GET['category'] != 'all') {
-    $sql = "SELECT * FROM produits WHERE description LIKE '%".$_GET['keyword']."%' OR name LIKE '%".$_GET['keyword']."%' AND categorie LIKE '%".$_GET['category']."%'";
+if ((isset($_GET['keyword']) && $_GET['keyword'])) {
+    $sql = "SELECT * FROM produits WHERE description LIKE '%".$_GET['keyword']."%' OR name LIKE '%".$_GET['keyword']."%'";
     $result = mysqli_query($db, $sql);
-  }else{
-    $sql = "SELECT * FROM produits WHERE name LIKE '%".$_GET['keyword']."%'";
-    $result = mysqli_query($db, $sql);
-  }
 }else{
 $sql = "SELECT * FROM produits";
 $result = mysqli_query($db, $sql);
