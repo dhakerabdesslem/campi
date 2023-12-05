@@ -12,7 +12,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     if (mysqli_num_rows($result) < 1) {
         header("Location: /");
     }
-    $sqlcat = "SELECT * FROM produits Where categorie=".$categorie." AND id != ".$id_produit;
+    $sqlcat = "SELECT * FROM produits Where categorie=".$categorie;
     $resultcat = mysqli_query($db, $sqlcat);
 }else{
     header("Location: /");
