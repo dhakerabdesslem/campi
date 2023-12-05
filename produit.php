@@ -19,6 +19,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 }
 ?>
 <?php include "./navbar.php";?>
+<link href="./assets/css3/review.css" rel="stylesheet">
+<script src="./assets/script/script.js"></script>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -51,49 +53,27 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                     <?php }?>
     </div>
                 </div>
+                <!DOCTYPE html>
+	<div class="wrapper">
+		<h3>Lorem ipsum dolor sit amet.</h3>
+		<form action="#">
+			<div class="rating">
+				<input type="number" name="rating" hidden>
+				<i class='bx bx-star star' style="--i: 0;"></i>
+				<i class='bx bx-star star' style="--i: 1;"></i>
+				<i class='bx bx-star star' style="--i: 2;"></i>
+				<i class='bx bx-star star' style="--i: 3;"></i>
+				<i class='bx bx-star star' style="--i: 4;"></i>
+			</div>
+			<textarea name="opinion" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+			<div class="btn-group">
+				<button type="submit" class="btn submit">Submit</button>
+				<button class="btn cancel">Cancel</button>
+			</div>
+		</form>
+	</div>
             </div>
-            <div class="edd-reviews-form comment-respond" id="edd-reviews-respond">
-	<h3 id="edd-reviews-review-title" class="comment-reply-title edd-reviews-review-title">Write a Review</h3>
-	<form action="/downloads/test-title/?review_submitted=1" method="post" name="edd-reviews-form" id="edd-reviews-form" class="comment-form edd-reviews-form">
-		<fieldset>
-			<div class="edd-reviews-form-inner">
-				<p class="edd-reviews-review-form-review-title">
-					<label for="edd-reviews-review-title">Review Title <span class="required">*</span></label>
-					<input type="text" id="edd-reviews-review-title" class="edd-reviews-review-title" name="edd-reviews-review-title" value="" size="30" aria-required="true" required="required" />
-				</p><!-- /.edd-reviews-review-form-review-title -->
-				<p class="edd-reviews-review-form-rating">
-					<label for="edd-reviews-review">Rating <span class="required">*</span></label>
-					<span class="edd-reviews-star-rating-container">
-						<span class="edd-reviews-stars-filled">
-							<span class="dashicons dashicons-star-filled edd-reviews-star-rating edd-reviews-star-rating-1" data-rating="1"></span>
-							<span class="dashicons dashicons-star-filled edd-reviews-star-rating edd-reviews-star-rating-2" data-rating="2"></span>
-							<span class="dashicons dashicons-star-filled edd-reviews-star-rating edd-reviews-star-rating-3" data-rating="3"></span>
-							<span class="dashicons dashicons-star-filled edd-reviews-star-rating edd-reviews-star-rating-4" data-rating="4"></span>
-							<span class="dashicons dashicons-star-filled edd-reviews-star-rating edd-reviews-star-rating-5" data-rating="5"></span>
-						</span>
-						<span class="edd-reviews-stars-empty">
-							<span class="dashicons dashicons-star-empty edd-reviews-star-rating edd-reviews-star-rating-1" data-rating="1"></span>
-							<span class="dashicons dashicons-star-empty edd-reviews-star-rating edd-reviews-star-rating-2" data-rating="2"></span>
-							<span class="dashicons dashicons-star-empty edd-reviews-star-rating edd-reviews-star-rating-3" data-rating="3"></span>
-							<span class="dashicons dashicons-star-empty edd-reviews-star-rating edd-reviews-star-rating-4" data-rating="4"></span>
-							<span class="dashicons dashicons-star-empty edd-reviews-star-rating edd-reviews-star-rating-5" data-rating="5"></span>
-						</span>
-						<input type="hidden" name="edd-reviews-review-rating" id="edd-reviews-star-rating" value="" />
-					</span>							
-				</p><!-- /.edd-reviews-review-form-rating -->
-				<p class="edd-reviews-review-form-review">
-					<label for="edd-reviews-review">Review <span class="required">*</span></label>
-					<textarea id="edd-reviews-review" name="edd-reviews-review" cols="45" rows="8" aria-required="true" required="required"></textarea>
-				</p><!-- /.edd-reviews-review-form-review -->
-				<p class="edd-reviews-review-form-submit">
-					<input type="submit" class="edd-reviews-review-form-submit" id="edd-reviews-review-form-submit" name="edd-reviews-review-form-submit" value="Post Review" />
-				</p><!-- /.edd-reviews-review-form-submit -->
-				<input type="hidden" name="edd-reviews-review-post-ID" value="2724" />
-				<input type="hidden" name="edd_action" value="reviews_process_review" />
-			</div><!-- /.edd-reviews-form-inner -->
-		</fieldset>
-	</form><!-- /#edd-reviews-form -->
-</div><!-- /.edd-reviews-form -->
+            
         </section>
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
