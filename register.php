@@ -9,7 +9,7 @@ if (isset($_POST) && $_POST) {
   $prenom = $_POST['prenom'];
   $email = $_POST['email'];
   $Password = $_POST['Password'];
-    $sql = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."')";
+    $sql = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
       $result = mysqli_query($db, $sql);
   }
 
