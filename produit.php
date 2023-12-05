@@ -21,6 +21,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 <?php include "./navbar.php";?>
 <link href="./assets/css3/review.css" rel="stylesheet">
 <script src="./assets/script/script.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
