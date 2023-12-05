@@ -19,7 +19,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 }
 ?>
 <?php include "./navbar.php";?>
-<link href="./assets/css3/review.css" rel="stylesheet">
+<link href="./assets/css3/reviews.css" rel="stylesheet">
 <script src="./assets/script/script.js"></script>
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 <section class="py-5">
@@ -51,12 +51,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                             </button>
                         </div>
                     </div>
-                    <?php }?>
-    </div>
-                </div>
-                <!DOCTYPE html>
-	<div class="wrapper">
-		<h3>Lorem ipsum dolor sit amet.</h3>
+                    <div class="wrapper" >
+		<h3>AVIS CLIENTS</h3>
 		<form action="#">
 			<div class="rating">
 				<input type="number" name="rating" hidden>
@@ -66,13 +62,18 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 				<i class='bx bx-star star' style="--i: 3;"></i>
 				<i class='bx bx-star star' style="--i: 4;"></i>
 			</div>
-			<textarea name="opinion" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+			<textarea name="opinion" cols="30" rows="5" placeholder="Votre avis..."></textarea>
+
 			<div class="btn-group">
-				<button type="submit" class="btn submit">Submit</button>
+				<button type="submit" class="btn submit">Envoyer</button>
 				<button class="btn cancel">Cancel</button>
 			</div>
 		</form>
 	</div>
+                    <?php }?>
+    </div>
+                </div>
+
             </div>
             
         </section>
