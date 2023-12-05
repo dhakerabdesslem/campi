@@ -25,7 +25,7 @@
                     <div class="col-md-5 my-auto">
                         <form role="search">
                             <div class="input-group">
-                                <input type="search" name="keyword" placeholder="Search your product" class="form-control" />
+                                <input type="search" name="keyword" placeholder="Search your product" class="form-control" required/>
                                 <button class="btn bg-white" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -59,10 +59,10 @@
                                 <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
                                 echo '<li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>';
+                                <li><a class="dropdown-item" href="./logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>';
                                     } else {
-                                echo '<li><a class="dropdown-item" href="#"><i class="fa fa-sign-in"></i>Login</a></li>';
-                                echo '<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Create Account</a></li>';
+                                echo '<li><a class="dropdown-item" href="./login.php"><i class="fa fa-sign-in"></i>Login</a></li>';
+                                echo '<li><a class="dropdown-item" href="./register.php"><i class="fa fa-user"></i>Create Account</a></li>';
                                 } ?>
                                 </ul>
                             </li>
