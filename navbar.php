@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name" ><a href="/" style="color:#fff">Campi.tn</a></h5>
+                        <h5 class="brand-name" ><a href="/" style="color:#fff,text-decoration:none">Campi.tn</a></h5>
                     </div>
                     <div class="col-md-5 my-auto">
                         <form role="search">
