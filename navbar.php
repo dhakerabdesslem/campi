@@ -49,8 +49,11 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-user"></i>
                                 <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
-                                    echo ""; }?>
-
+                                    echo $_SESSION["name"]; }else{
+                                        echo "Login / Create Account";
+                                    }
+                                    
+                                    ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
