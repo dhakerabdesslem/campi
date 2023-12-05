@@ -29,30 +29,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 6.25vmax;
-}
-@media (max-width: 992px) {
-  html {
-    font-size: 60px;
-  }
-}
 
-body{
-  min-height: 100vh;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #222;
-  font-size: 0.24rem;
-  font-family: "Space Grotesk", sans-serif;
-  background-image: radial-gradient(farthest-side, #afc8f9 90%, #fff0), radial-gradient(farthest-side, #ddc1fb 90%, #fff0), radial-gradient(circle at 0 0, #d5e0fa, #e5d5f6) !important;
-  background-size: 7rem 7rem, 6rem 6rem, auto;
-  background-position: 30% 10%, 80% 90%, 0;
-  background-repeat: no-repeat;
-  backdrop-filter: blur(50px);
-}
 
 .wrapper {
   width: 6rem;
