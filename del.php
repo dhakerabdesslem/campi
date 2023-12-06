@@ -43,7 +43,7 @@ $resultp = mysqli_query($db, $sqlp);
       <?php if (mysqli_num_rows($resultp) > 0) {
          while($resp = mysqli_fetch_assoc($resultp)) {
         ?>
-    <option value="<?= $resp['id']; ?>"><?= $res['resp']; ?></option>
+    <option value="<?= $resp['id']; ?>"><?= $resp['name']; ?></option>
     <?php }}?>
   </select> 
 </div>
