@@ -20,6 +20,15 @@ if (isset($_POST) && $_POST) {
     $_SESSION['id'] = $res['id'];
     $_SESSION['name'] = $res['prenom'];
     }
+
+    if($_POST['ref'] == '') {
+      header("Location: ./");
+      die();
+    }else{
+      header("Location: ".$_POST['ref']);
+      die();
+    }
+    
     header("Location: /");
     die();
   
