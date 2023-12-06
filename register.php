@@ -15,14 +15,31 @@ if (isset($_POST) && $_POST) {
   $prenom = $_POST['prenom'];
   $email = $_POST['email'];
   $Password = $_POST['Password'];
-    $sql = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
+    $sqlinsert = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
+      $resinsert = mysqli_query($db, $sqlinsert);
+      $sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
       $result = mysqli_query($db, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        while($res = mysqli_fetch_assoc($result)) {
+        $_SESSION['id'] = $res['id'];
+        }
+        header("Location: ./");
+        die();
+      }else{
+      $err = "true";
+      } 
   }
 
+  
 ?>
 <?php include "./navbar.php";?>
 <br>
-<div class="container">    
+<div class="container">
+<?php 
+  if($err == 'true') {
+    echo '<center><div class="alert alert-warning">Sign Up Error!!</div></center>';
+  }
+  ?>
 <form method="post" action="register.php">
   <div class="form-group">
     <label for="nom">Nom</label>

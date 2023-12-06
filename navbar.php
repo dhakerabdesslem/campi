@@ -35,11 +35,11 @@
                     <div class="col-md-5 my-auto">
                         <ul class="nav justify-content-end">
                         <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
-                              $sql = "SELECT * FROM `users` WHERE id=".$_SESSION["id"];
-                              $result = mysqli_query($db, $sql);
-                              if (mysqli_num_rows($result) > 0) {
-                                while($res = mysqli_fetch_assoc($result)) {
-                                if($res["role"] == "admin"){ 
+                              $sqlusers = "SELECT * FROM `users` WHERE id=".$_SESSION["id"];
+                              $resultusers = mysqli_query($db, $sqlusers);
+                              if (mysqli_num_rows($resultusers) > 0) {
+                                while($resuser = mysqli_fetch_assoc($resultusers)) {
+                                if($resuser["role"] == "admin"){ 
                                     echo '<li class="nav-item">
                                     <a class="nav-link" href="./add.php">
                                         <i class="fa fa-plus"></i> Add Produit
