@@ -22,6 +22,7 @@ if (isset($_POST) && $_POST) {
       if (mysqli_num_rows($result) > 0) {
         while($res = mysqli_fetch_assoc($result)) {
         $_SESSION['id'] = $res['id'];
+        $_SESSION['name'] = $res['prenom'];
         }
         header("Location: ./");
         die();
