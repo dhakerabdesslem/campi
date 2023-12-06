@@ -38,10 +38,10 @@ $result = mysqli_query($db, $sql);
   <h2>Delete un produit</h2>
   <form action="del.php" method="post">
     <div class="form-group">
-  <label for="name">name:</label>
-  <select class="form-control" id="name" name="id">
-  <?php if (mysqli_num_rows($result) > 0) {
-      while($res = mysqli_fetch_assoc($result)) {
+  <label for="id">Produit :</label>
+  <select class="form-control" id="id" name="id">
+      <?php if (mysqli_num_rows($result) > 0) {
+         while($res = mysqli_fetch_assoc($result)) {
         ?>
     <option value="<?= $res['id']?>"><?= $res['name']?></option>
     <?php }}?>
