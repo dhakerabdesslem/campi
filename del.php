@@ -25,9 +25,8 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
 }
 
 if (isset($_POST) && $_POST) {
-    $name = $_POST['name'];
-
-    $sql = "DELETE FROM produits WHERE name = '$name'";
+    $id = $_POST['id'];
+    $sql = "DELETE FROM produits WHERE id=".$id;
     $X = mysqli_query($db, $sql);
 }
 $sql = "SELECT * FROM produits";
@@ -40,16 +39,16 @@ $result = mysqli_query($db, $sql);
   <form action="del.php" method="post">
     <div class="form-group">
   <label for="name">name:</label>
-  <select class="form-control" id="name" name="name">
+  <select class="form-control" id="name" name="id">
   <?php if (mysqli_num_rows($result) > 0) {
       while($res = mysqli_fetch_assoc($result)) {
         ?>
-    <option value="<?= $res['name']?>"><?= $res['name']?></option>
+    <option value="<?= $res['id']?>"><?= $res['name']?></option>
     <?php }}?>
   </select> 
 </div>
 <br>
-    <button type="submit" class="btn btn-default">Delete</button>
+<button type="submit" class="btn btn-primary">Delete produit</button>
   </form>
 </div>
 <br>
