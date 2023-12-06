@@ -29,8 +29,8 @@ if (isset($_POST) && $_POST) {
     $sql = "DELETE FROM produits WHERE id=".$id;
     $X = mysqli_query($db, $sql);
 }
-$sql = "SELECT * FROM produits";
-$result = mysqli_query($db, $sql);
+$sqlp = "SELECT * FROM produits";
+$resultp = mysqli_query($db, $sqlp);
 ?>
 <?php include "./navbar.php";?>
 <br>
@@ -40,10 +40,10 @@ $result = mysqli_query($db, $sql);
     <div class="form-group">
   <label for="id">Produit :</label>
   <select class="form-control" id="id" name="id">
-      <?php if (mysqli_num_rows($result) > 0) {
-         while($res = mysqli_fetch_assoc($result)) {
+      <?php if (mysqli_num_rows($resultp) > 0) {
+         while($resp = mysqli_fetch_assoc($resultp)) {
         ?>
-    <option value="<?= $res['id']?>"><?= $res['name']?></option>
+    <option value="<?= $resp['id']; ?>"><?= $res['resp']; ?></option>
     <?php }}?>
   </select> 
 </div>
