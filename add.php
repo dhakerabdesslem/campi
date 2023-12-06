@@ -11,16 +11,20 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
   if (mysqli_num_rows($result) > 0) {
     while($res = mysqli_fetch_assoc($result)) {
     if($res["role"] != "admin"){
-      header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+      
+      header("Location: ./login.php");
+      setcookie("ref", $_SERVER['REQUEST_URI'] , "/");
       die();
     }
     }
   
   }else{
-    header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+    header("Location: ./login.php");
+      setcookie("ref", $_SERVER['REQUEST_URI'] , "/");
     die();  } 
 }else{
-  header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+  header("Location: ./login.php");
+      setcookie("ref", $_SERVER['REQUEST_URI'] , "/");
     die();
 }
 

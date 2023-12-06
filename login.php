@@ -21,14 +21,13 @@ if (isset($_POST) && $_POST) {
     $_SESSION['name'] = $res['prenom'];
     }
 
-    if($_POST['ref'] == '') {
-      header("Location: ./");
+    if(isset($_COOKIE["ref"])) {
+      header("Location: ".$_COOKIE["ref"]);
       die();
     }else{
-      header("Location: ".$_POST['ref']);
+      header("Location: ./");
       die();
     }
-    
     header("Location: /");
     die();
   
