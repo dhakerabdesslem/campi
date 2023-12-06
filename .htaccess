@@ -1,0 +1,28 @@
+ServerSignature Off
+Options -Indexes
+
+
+ErrorDocument 400 http://%{HTTP_HOST}
+ErrorDocument 401 http://%{HTTP_HOST}
+ErrorDocument 402 http://%{HTTP_HOST}
+ErrorDocument 403 http://%{HTTP_HOST}
+ErrorDocument 404 http://%{HTTP_HOST}
+ErrorDocument 405 http://%{HTTP_HOST}
+ErrorDocument 406 http://%{HTTP_HOST}
+ErrorDocument 407 http://%{HTTP_HOST}
+ErrorDocument 408 http://%{HTTP_HOST}
+ErrorDocument 409 http://%{HTTP_HOST}
+ErrorDocument 410 http://%{HTTP_HOST}
+ErrorDocument 411 http://%{HTTP_HOST}
+ErrorDocument 412 http://%{HTTP_HOST}
+ErrorDocument 413 http://%{HTTP_HOST}
+ErrorDocument 414 http://%{HTTP_HOST}
+ErrorDocument 415 http://%{HTTP_HOST}
+ErrorDocument 416 http://%{HTTP_HOST}
+ErrorDocument 417 http://%{HTTP_HOST}
+ErrorDocument 422 http://%{HTTP_HOST}
+ErrorDocument 423 http://%{HTTP_HOST}
+ErrorDocument 424 http://%{HTTP_HOST}
+ErrorDocument 500 http://%{HTTP_HOST}
+ErrorDocument 501 http://%{HTTP_HOST}
+ErrorDocument 502 http://%{HTTP_HOST}

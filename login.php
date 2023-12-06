@@ -2,7 +2,14 @@
 session_start();
 error_reporting(0);
 ini_set("display_errors", 0);
+
 include "assets/database/db.php";
+
+if (isset($_SESSION["id"]) && $_SESSION["id"]) {
+  header("Location: ./");
+  die();
+}
+
 if (isset($_POST) && $_POST) {
   $email = $_POST['email'];
   $password = $_POST['password'];

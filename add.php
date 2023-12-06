@@ -1,8 +1,28 @@
 <?php
+session_start();
 error_reporting(1);
 ini_set('display_errors', 1);
 
 include "./assets/database/db.php";
+
+if (isset($_SESSION["id"]) && $_SESSION["id"]) {
+  $sql = "SELECT * FROM `users` WHERE id=".$_SESSION["id"];
+  $result = mysqli_query($db, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    while($res = mysqli_fetch_assoc($result)) {
+    if($res["role"] != "admin"){
+      header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+      die();
+    }
+    }
+  
+  }else{
+    header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+    die();  } 
+}else{
+  header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+    die();
+}
 
 if (isset($_POST) && $_POST) {
   if($_POST['categorie'] != ''){
@@ -20,7 +40,6 @@ if (isset($_POST) && $_POST) {
     $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
     VALUES ('$name', '$description',$prix, '$target_file', '$categorie',$sale)";
     $X = mysqli_query($db, $sql);
-
   }
 }
 
