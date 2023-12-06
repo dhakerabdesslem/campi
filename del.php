@@ -1,5 +1,4 @@
 <?php
-<?php
 session_start();
 error_reporting(1);
 ini_set('display_errors', 1);
@@ -11,18 +10,18 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
   $result = mysqli_query($db, $sql);
   if (mysqli_num_rows($result) > 0) {
     while($res = mysqli_fetch_assoc($result)) {
-    if($res["role"] != "admin"){
-      header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
+    if($res["role"] != "admin"){ 
+      header("Location: ./login.php");
+      setcookie("ref", $_SERVER['REQUEST_URI'] , time() + (86400 * 30) ,"/");
       die();
     }
     }
   
-  }else{
-    header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
-    die();  } 
+  }
 }else{
-  header("Location: ./login.php?ref=".$_SERVER['REQUEST_URI']);
-    die();
+  header("Location: ./login.php");
+  setcookie("ref", $_SERVER['REQUEST_URI'] , time() + (86400 * 30) ,"/");
+  die();
 }
 
 if (isset($_POST) && $_POST) {
@@ -35,7 +34,7 @@ $sql = "SELECT * FROM produits";
 $result = mysqli_query($db, $sql);
 ?>
 <?php include "./navbar.php";?>
-
+<br>
 <div class="container">
   <h2>Delete un produit</h2>
   <form action="del.php" method="post">
@@ -52,6 +51,7 @@ $result = mysqli_query($db, $sql);
     <button type="submit" class="btn btn-default">Delete</button>
   </form>
 </div>
+<br>
 
 <script type="text/javascript">
         if (window.history.replaceState) {

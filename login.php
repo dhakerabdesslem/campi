@@ -36,7 +36,7 @@ if (isset($_POST) && $_POST) {
 ?>
 <?php include "./navbar.php";?>
 
-
+<br>
 <div class="container">    
 <?php 
   if($err == 'true') {
@@ -62,6 +62,7 @@ if (isset($_POST) && $_POST) {
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
+<br>
 <?php include "./footer.php";?>
 
 </body>

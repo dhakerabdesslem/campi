@@ -45,6 +45,7 @@ if (isset($_POST) && $_POST) {
 
 ?>
 <?php include "./navbar.php";?>
+<br>
 <div class="container">    
 <form method="post" action="add.php" enctype="multipart/form-data">
   <div class="form-group">
@@ -86,6 +87,7 @@ if (isset($_POST) && $_POST) {
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
 </form>
 </div>
+<br>
 <script type="text/javascript">
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
