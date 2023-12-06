@@ -35,6 +35,37 @@
                     <div class="col-md-5 my-auto">
                         <ul class="nav justify-content-end">
                         <?php if (isset($_SESSION["id"]) && $_SESSION["id"]) {
+                              $sql = "SELECT * FROM `users` WHERE id=".$_SESSION["id"];
+                              $result = mysqli_query($db, $sql);
+                              if (mysqli_num_rows($result) > 0) {
+                                while($res = mysqli_fetch_assoc($result)) {
+                                if($res["role"] == "admin"){ 
+                                    echo '<li class="nav-item">
+                                    <a class="nav-link" href="./add.php">
+                                        <i class="fa fa-plus"></i> Add Produit
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./del.php">
+                                        <i class="fa fa-trash-o"></i> Delete Produit
+                                    </a>
+                                </li>';
+                                }
+                                }
+                              
+                              }
+                            if(){
+                                echo '<li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-heart"></i> Wishlist (0)
+                                </a>
+                            </li>';
+                            }else{
                             echo '<li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <i class="fa fa-shopping-cart"></i> Cart (0)
@@ -45,6 +76,7 @@
                                     <i class="fa fa-heart"></i> Wishlist (0)
                                 </a>
                             </li>';
+                            }
                          } ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
