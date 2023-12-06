@@ -48,6 +48,7 @@ $result = mysqli_query($db, $sql);
     <?php }}?>
   </select> 
 </div>
+<br>
     <button type="submit" class="btn btn-default">Delete</button>
   </form>
 </div>

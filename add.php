@@ -84,6 +84,7 @@ if (isset($_POST) && $_POST) {
   <input type="number" class="form-control" id="sale" placeholder="Enter sale" aria-describedby="saleHelp" placeholder="Enter sale" max="99" min="0" name="sale" value="0">
   </select>
   </div>
+  <br>
   <button type="submit" class="btn btn-primary">Ajoute produit</button>
 </form>
 </div>
