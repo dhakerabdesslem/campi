@@ -50,22 +50,6 @@
                                         <i class="fa fa-trash-o"></i> Delete Produit
                                     </a>
                                 </li>';
-                                }
-                            }
-                                }
-                              
-                              }
-                            if(){
-                                echo '<li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-shopping-cart"></i> Cart (0)
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-heart"></i> Wishlist (0)
-                                </a>
-                            </li>';
                             }else{
                             echo '<li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -78,6 +62,7 @@
                                 </a>
                             </li>';
                             }
+                        }}
                          } ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
