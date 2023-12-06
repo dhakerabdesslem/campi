@@ -27,10 +27,7 @@ if (isset($_POST) && $_POST) {
     }else{
       header("Location: ./");
       die();
-    }
-    header("Location: /");
-    die();
-  
+    }  
   }else{
   $err = "true";
   } 
