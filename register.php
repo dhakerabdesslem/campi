@@ -14,7 +14,7 @@ if (isset($_POST) && $_POST) {
   $name = $_POST['nom'];
   $prenom = $_POST['prenom'];
   $email = $_POST['email'];
-  $Password = $_POST['Password'];
+  $password = $_POST['password'];
     $sqlinsert = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
       $resinsert = mysqli_query($db, $sqlinsert);
       $sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
@@ -54,8 +54,8 @@ if (isset($_POST) && $_POST) {
     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
-    <label for="Password">Password</label>
-    <input type="Password" class="form-control" name="Password" id="Password" placeholder="Password">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
