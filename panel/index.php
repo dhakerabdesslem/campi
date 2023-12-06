@@ -1,4 +1,4 @@
-<?php include "./navbar.php";?>
+<?php include "../navbar.php";?>
 
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
