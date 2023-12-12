@@ -48,14 +48,52 @@ if (isset($_POST) && $_POST) {
     $prix = intval($_POST['prix']);
     $categorie = $_POST['categorie'];
     $sale = intval($_POST['sale']);
+
+
+      if (isset($_FILES["image"])) {
+          $imagePath = $_FILES["image"]["tmp_name"];
+  
+          if (is_uploaded_file($imagePath)) {
+              $base64Image = imageToBase64($imagePath);
+  
+              if ($base64Image !== false) {
+                  echo "Base64 representation of the image: <br>";
+                  echo "<textarea rows='10' cols='50'>$base64Image</textarea>";
+              } else {
+                  echo "Unable to convert the image to base64.";
+              }
+          } else {
+              echo "Invalid file.";
+          }
+      }
+  
+  function imageToBase64($imagePath) {
+      $fileHandle = fopen($imagePath, 'rb');
+  
+      if ($fileHandle === false) {
+          return false;
+      }
+  
+      $base64 = '';
+      while (!feof($fileHandle)) {
+          $chunk = fread($fileHandle, 8192);
+          $base64 .= base64_encode($chunk);
+      }
+  
+      fclose($fileHandle);
+  
+      return $base64;
+  }
+
+
+
     $target_dir = "./assets/images/produits/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    $imgg = imageToBase64($_FILES["image"]["tmp_name"]);
     $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
-    VALUES ('$name', '$description',$prix, '$imgg', '$categorie',$sale)";
+    VALUES ('$name', '$description',$prix, '$base64Image', '$categorie',$sale)";
     $X = mysqli_query($db, $sql);
   }
 }
