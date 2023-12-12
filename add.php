@@ -56,10 +56,10 @@ if (isset($_POST) && $_POST) {
 
       if (is_uploaded_file($imagePath)) {
           $base64Image = imageToBase64($imagePath);
-
+          $imgbase = 'data:image/png;base64,'.$base64Image;
           if ($base64Image !== false) {
             $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
-            VALUES ('$name', '$description',$prix, '$base64Image', '$categorie',$sale)";
+            VALUES ('$name', '$description',$prix, '$imgbase', '$categorie',$sale)";
             $X = mysqli_query($db, $sql);
           } else {
               echo "Error";
