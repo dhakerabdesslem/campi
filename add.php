@@ -25,21 +25,6 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
 }
 
 if (isset($_POST) && $_POST) {
-  
-  function imageToBase64($imagePath) {
-    ob_start();
-    readfile($imagePath);
-    $imageData = ob_get_contents();
-    ob_end_clean();
-
-    if ($imageData === false) {
-        return false;
-    }
-
-    $base64 = base64_encode($imageData);
-
-    return $base64;
-}
 
   if($_POST['categorie'] != ''){
     $name = $_POST['name'];
