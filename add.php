@@ -25,6 +25,22 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
 }
 
 if (isset($_POST) && $_POST) {
+  
+  function imageToBase64($imagePath) {  
+    $fileHandle = fopen($imagePath, 'rb');
+
+    if ($fileHandle === false) {
+        return false;
+    }
+    $base64 = '';
+    while (!feof($fileHandle)) {
+        $chunk = fread($fileHandle, 8192);
+        $base64 .= base64_encode($chunk);
+    }
+    fclose($fileHandle);
+    return $base64;
+  }
+
   if($_POST['categorie'] != ''){
     $name = $_POST['name'];
     $description = $_POST['description'];
@@ -37,8 +53,9 @@ if (isset($_POST) && $_POST) {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    $imgg = imageToBase64($target_file);
     $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
-    VALUES ('$name', '$description',$prix, '$target_file', '$categorie',$sale)";
+    VALUES ('$name', '$description',$prix, '$img', '$categorie',$sale)";
     $X = mysqli_query($db, $sql);
   }
 }
