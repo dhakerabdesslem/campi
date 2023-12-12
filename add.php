@@ -34,6 +34,24 @@ if (isset($_POST) && $_POST) {
     $categorie = $_POST['categorie'];
     $sale = intval($_POST['sale']);
 
+      
+  function imageToBase64($imagePath) {
+    $fileHandle = fopen($imagePath, 'rb');
+
+    if ($fileHandle === false) {
+        return false;
+    }
+
+    $base64 = '';
+    while (!feof($fileHandle)) {
+        $chunk = fread($fileHandle, 8192);
+        $base64 .= base64_encode($chunk);
+    }
+
+    fclose($fileHandle);
+
+    return $base64;
+}
 
       if (isset($_FILES["image"])) {
           $imagePath = $_FILES["image"]["tmp_name"];
@@ -52,24 +70,7 @@ if (isset($_POST) && $_POST) {
               echo "Invalid file.";
           }
       }
-  
-  function imageToBase64($imagePath) {
-      $fileHandle = fopen($imagePath, 'rb');
-  
-      if ($fileHandle === false) {
-          return false;
-      }
-  
-      $base64 = '';
-      while (!feof($fileHandle)) {
-          $chunk = fread($fileHandle, 8192);
-          $base64 .= base64_encode($chunk);
-      }
-  
-      fclose($fileHandle);
-  
-      return $base64;
-  }
+
   }
 }
 
