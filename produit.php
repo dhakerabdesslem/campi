@@ -3,7 +3,6 @@ session_start();
 error_reporting(0);
 ini_set("display_errors", 0);
 include "./assets/database/db.php";
-
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
     $category = intval($_GET['category']);

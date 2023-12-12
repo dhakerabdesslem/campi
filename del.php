@@ -52,7 +52,6 @@ $resultp = mysqli_query($db, $sqlp);
   </form>
 </div>
 <br>
-
 <script type="text/javascript">
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);

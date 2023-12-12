@@ -1,7 +1,6 @@
 ServerSignature Off
 Options -Indexes
 
-
 ErrorDocument 400 http://%{HTTP_HOST}
 ErrorDocument 401 http://%{HTTP_HOST}
 ErrorDocument 402 http://%{HTTP_HOST}
