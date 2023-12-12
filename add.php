@@ -25,6 +25,21 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]) {
 }
 
 if (isset($_POST) && $_POST) {
+  
+  function imageToBase64($imagePath) {
+    ob_start();
+    readfile($imagePath);
+    $imageData = ob_get_contents();
+    ob_end_clean();
+
+    if ($imageData === false) {
+        return false;
+    }
+
+    $base64 = base64_encode($imageData);
+
+    return $base64;
+}
 
   if($_POST['categorie'] != ''){
     $name = $_POST['name'];
@@ -34,43 +49,26 @@ if (isset($_POST) && $_POST) {
     $categorie = $_POST['categorie'];
     $sale = intval($_POST['sale']);
 
-      
-  function imageToBase64($imagePath) {
-    $fileHandle = fopen($imagePath, 'rb');
 
-    if ($fileHandle === false) {
-        return false;
-    }
 
-    $base64 = '';
-    while (!feof($fileHandle)) {
-        $chunk = fread($fileHandle, 8192);
-        $base64 .= base64_encode($chunk);
-    }
+    if (isset($_FILES["image"])) {
+      $imagePath = $_FILES["image"]["tmp_name"];
 
-    fclose($fileHandle);
+      if (is_uploaded_file($imagePath)) {
+          $base64Image = imageToBase64($imagePath);
 
-    return $base64;
-}
-
-      if (isset($_FILES["image"])) {
-          $imagePath = $_FILES["image"]["tmp_name"];
-  
-          if (is_uploaded_file($imagePath)) {
-              $base64Image = imageToBase64($imagePath);
-  
-              if ($base64Image !== false) {
-                $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
-                VALUES ('$name', '$description',$prix, '$base64Image', '$categorie',$sale)";
-                $X = mysqli_query($db, $sql);
-              } else {
-                  echo "Error";
-              }
+          if ($base64Image !== false) {
+            $sql = "INSERT INTO produits (name, description, prix,image, categorie,sale)
+            VALUES ('$name', '$description',$prix, '$base64Image', '$categorie',$sale)";
+            $X = mysqli_query($db, $sql);
           } else {
-              echo "Invalid file.";
+              echo "Error";
           }
+      } else {
+          echo "Invalid file.";
       }
-
+  }
+  
   }
 }
 
