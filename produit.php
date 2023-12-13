@@ -105,6 +105,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                     </div>
                     <?php }?>
     </div>
+    <div class="nav nav-tabs mb-3">
+                                    <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission" aria-controls="nav-mission" aria-selected="false">Reviews</button>
+                                </div>
     <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
                                     <?php 
                                         if (mysqli_num_rows($reviewresult) > 0) {
