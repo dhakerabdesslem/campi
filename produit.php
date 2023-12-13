@@ -69,7 +69,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                                     <div class="">
                                                         <p class="mb-2" style="font-size: 14px;"><?= $reviewrow['date'] ?></p>
                                                         <div class="d-flex justify-content-between">
-                                                            <h5><?= $reviewrow['name'] ?></h5>
                                                             <div class="d-flex mb-3">
                                                                 <?php for($i=0; $i < 5; $i++ ){
                                                                     if ($i < $reviewrow['rating'] ){ ?>
