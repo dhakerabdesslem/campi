@@ -92,6 +92,32 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                     ?>
                                 </div>
                 </div>
+                <form method="POST">
+                            <h4 class="mb-5 fw-bold">Leave a Reply</h4>
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="border-bottom rounded my-4">
+                                        <textarea name="review" id="message" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="d-flex justify-content-between py-3 mb-5">
+                                        <div class="d-flex align-items-center">
+                                            <p class="mb-0 me-3">Please rate:</p>
+                                            <input type="number" name="rating" id="rating">
+                                            <div class="d-flex align-items-center" style="font-size: 12px;">
+                                                <i class="fa fa-star text-muted"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
             </div>
             
