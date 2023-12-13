@@ -88,6 +88,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                         <textarea name="review" id="message" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
                                     </div>
                                 </div>
+                                
                                 <div class="col-lg-12">
                                     <div class="d-flex justify-content-between py-3 mb-5">
                                         <div class="d-flex align-items-center">
