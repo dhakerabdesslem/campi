@@ -142,9 +142,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                 <div class="col-lg-12">
                                     <div class="d-flex justify-content-between py-3 mb-5">
                                         <div class="d-flex align-items-center">
-                                            <p class="mb-0 me-3">Please rate:</p>
-                                            
-<div class="rating">
+                                            <p class="mb-0 me-3">Please rate:</p><br>
+                                            <div class="rating">
   <input type="radio" id="star5" name="rating" value="5" />
   <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
   <input type="radio" id="star4" name="rating" value="4" />
@@ -157,7 +156,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
   <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
 </div>
                                         </div>
-                                        <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post Comment</button>
+                                        <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post</button>
                                     </div>
                                 </div>
                             </div>
