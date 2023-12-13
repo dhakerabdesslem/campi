@@ -16,7 +16,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     $category = intval($_GET['category']);
 
     //review
-    $reviewsql = "SELECT * FROM `review` WHERE id_product = " . $id_produit . " ORDER by date desc;";
+    $reviewsql = "SELECT * FROM `review` WHERE id_produit = " . $id_produit . " ORDER by date desc;";
     $reviewresult = mysqli_query($db, $reviewsql);
 
     $sql = "SELECT * FROM produits where id=".$id_produit;
@@ -63,8 +63,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                         </div>
                         <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
                                     <?php 
-                                        if ($reviewresult->num_rows > 0) {
-                                            while($reviewrow = $reviewresult->fetch_assoc()) { ?>
+                                        if (mysqli_num_rows($reviewresult) < 1) {
+                                            while($reviewrow = mysqli_fetch_assoc($reviewresult)) { ?>
                                                 <div class="d-flex">
                                                     <div class="">
                                                         <p class="mb-2" style="font-size: 14px;"><?= $reviewrow['date'] ?></p>
