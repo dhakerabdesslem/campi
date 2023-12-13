@@ -143,6 +143,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                         <textarea name="review" id="message" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
                                     </div>
                                 </div>
+                                        <div class="d-flex align-items-center">
                                             <p class="mb-0 me-3">Please rate:</p>
                                             <div class="rating">
   <input type="radio" id="star5" name="rating" value="5" />
@@ -158,7 +159,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 </div>
                                         </div>
                                         <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post</button>
-                        </form>
+                                </div>
+                                    </form>
                         <?php } ?>
                 </div>
                 
