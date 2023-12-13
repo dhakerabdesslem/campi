@@ -32,6 +32,44 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 ?>
 <?php include "./navbar.php";?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    
+.rating {
+  margin-top: 40px;
+  border: none;
+  float: left;
+}
+
+.rating > label {
+  color: #90A0A3;
+  float: right;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  content: "\f005";
+  display: inline-block;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #F79426;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FECE31;
+}
+</style>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -102,14 +140,19 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                     <div class="d-flex justify-content-between py-3 mb-5">
                                         <div class="d-flex align-items-center">
                                             <p class="mb-0 me-3">Please rate:</p>
-                                            <input type="number" name="rating" id="rating">
-                                            <div class="d-flex align-items-center" style="font-size: 12px;">
-                                                <i class="fa fa-star text-muted"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
+                                            
+<div class="rating">
+  <input type="radio" id="star5" name="rating" value="5" />
+  <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+  <input type="radio" id="star4" name="rating" value="4" />
+  <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+  <input type="radio" id="star3" name="rating" value="3" />
+  <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+  <input type="radio" id="star2" name="rating" value="2" />
+  <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+  <input type="radio" id="star1" name="rating" value="1" />
+  <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+</div>
                                         </div>
                                         <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post Comment</button>
                                     </div>
