@@ -16,7 +16,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     $category = intval($_GET['category']);
 
     //review
-    $reviewsql = "SELECT * FROM `review` WHERE `id_produit`=".$id_produit;
+    $reviewsql = "SELECT * FROM review WHERE id_produit=".$id_produit;
     $reviewresult = mysqli_query($db, $reviewsql);
 
     $sql = "SELECT * FROM produits where id=".$id_produit;
