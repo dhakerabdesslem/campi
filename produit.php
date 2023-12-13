@@ -113,9 +113,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                                             <div class="d-flex mb-3">
                                                                 <?php for($i=0; $i < 5; $i++ ){
                                                                     if ($i < $reviewrow['rating'] ){ ?>
-                                                                    <i class="fa fa-star checked"></i>
+                                                                    <span class="fa fa-star checked"></span>
                                                                     <?php } else { ?> 
-                                                                        <i class="fa fa-star"></i>
+                                                                        <span class="fa fa-star"></span>
                                                                 <?php }} ?>
                                                             </div>
                                                         </div>
