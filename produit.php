@@ -5,10 +5,8 @@ ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
 if (isset($_POST) && $_POST) {
-        $sql = "INSERT INTO `review` (`rating`, `comment`,`id_user`,`id_produit`) VALUES ('" . $_POST['rating'] . "', '" . $_POST['review'] . "'," . $_SESSION['id'] . ",".intval($_GET['produit']).");";
-        if ($conn->query($sql) !== TRUE) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+        $sql2 = "INSERT INTO `review` (`rating`, `comment`,`id_user`,`id_produit`) VALUES ('" . $_POST['rating'] . "', '" . $_POST['review'] . "'," . $_SESSION['id'] . ",".intval($_GET['produit']).");";
+        $result2 = mysqli_query($db, $sql2);
     }
 
 if ((isset($_GET['produit']) && $_GET['produit'])) {
