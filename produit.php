@@ -61,7 +61,11 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                 Add to cart
                             </button>
                         </div>
-                        <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                        
+                    </div>
+                    <?php }?>
+    </div>
+    <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
                                     <?php 
                                         if (mysqli_num_rows($reviewresult) < 1) {
                                             while($reviewrow = mysqli_fetch_assoc($reviewresult)) { ?>
@@ -87,9 +91,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                         }
                                     ?>
                                 </div>
-                    </div>
-                    <?php }?>
-    </div>
                 </div>
 
             </div>
