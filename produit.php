@@ -69,6 +69,9 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 .rating > input:checked ~ label:hover ~ label {
   color: #FECE31;
 }
+.checked {
+  color: orange;
+}
 </style>
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
