@@ -91,8 +91,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                         }
                                     ?>
                                 </div>
-                </div>
-                <form method="POST">
+                                <form method="POST">
                             <h4 class="mb-5 fw-bold">Leave a Reply</h4>
                             <div class="row g-4">
                                 <div class="col-lg-12">
@@ -118,6 +117,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                 </div>
                             </div>
                         </form>
+                </div>
+                
 
             </div>
             
