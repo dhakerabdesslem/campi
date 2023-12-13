@@ -129,8 +129,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                                     </div>
                                                 </div>
                                         <?php }
-                                        } else {
-                                            echo "0 reviews";
                                         }
                                     ?>
                                 </div>
