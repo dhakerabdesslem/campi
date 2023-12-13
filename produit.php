@@ -67,7 +67,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
     </div>
     <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
                                     <?php 
-                                        if (mysqli_num_rows($reviewresult) < 1) {
+                                        if (mysqli_num_rows($reviewresult) > 0) {
                                             while($reviewrow = mysqli_fetch_assoc($reviewresult)) { ?>
                                                 <div class="d-flex">
                                                     <div class="">
