@@ -3,9 +3,22 @@ session_start();
 error_reporting(0);
 ini_set("display_errors", 0);
 include "./assets/database/db.php";
+
+if (isset($_POST) && $_POST) {
+        $sql = "INSERT INTO `review` (`rating`, `comment`,`id_user`,`id_produit`) VALUES ('" . $_POST['rating'] . "', '" . $_POST['review'] . "'," . $_SESSION['id'] . ",".intval($_GET['produit']).");";
+        if ($conn->query($sql) !== TRUE) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
     $category = intval($_GET['category']);
+
+    //review
+    $reviewsql = "SELECT rating, comment, date FROM `review` INNER JOIN users on id_user = users.id where id_product = " . $id_produit . " ORDER by date desc;";
+    $reviewresult = mysqli_query($db, $reviewsql);
+
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
     if (mysqli_num_rows($result) < 1) {
@@ -16,6 +29,8 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 }else{
     header("Location: /");
 }
+
+
 ?>
 <?php include "./navbar.php";?>
 <section class="py-5">
@@ -46,6 +61,33 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                                 Add to cart
                             </button>
                         </div>
+                        <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                    <?php 
+                                        if ($reviewresult->num_rows > 0) {
+                                            while($reviewrow = $reviewresult->fetch_assoc()) { ?>
+                                                <div class="d-flex">
+                                                    <div class="">
+                                                        <p class="mb-2" style="font-size: 14px;"><?= $reviewrow['date'] ?></p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <h5><?= $reviewrow['name'] ?></h5>
+                                                            <div class="d-flex mb-3">
+                                                                <?php for($i=0; $i < 5; $i++ ){
+                                                                    if ($i < $reviewrow['rating'] ){ ?>
+                                                                    <i class="fa fa-star text-secondary"></i>
+                                                                    <?php } else { ?> 
+                                                                        <i class="fa fa-star"></i>
+                                                                <?php }} ?>
+                                                            </div>
+                                                        </div>
+                                                        <p><?= $reviewrow['comment'] ?></p>
+                                                    </div>
+                                                </div>
+                                        <?php }
+                                        } else {
+                                            echo "0 reviews";
+                                        }
+                                    ?>
+                                </div>
                     </div>
                     <?php }?>
     </div>
