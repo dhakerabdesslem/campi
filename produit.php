@@ -33,11 +33,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 
 ?>
 <?php include "./navbar.php";?>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
