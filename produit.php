@@ -4,20 +4,9 @@ error_reporting(0);
 ini_set("display_errors", 0);
 include "./assets/database/db.php";
 
-if (isset($_POST) && $_POST) {
-        $sql = "INSERT INTO `review` (`rating`, `comment`,`id_user`,`id_produit`) VALUES ('" . $_POST['rating'] . "', '" . $_POST['review'] . "'," . $_SESSION['id'] . ",".intval($_GET['produit']).");";
-        if ($conn->query($sql) !== TRUE) {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-
 if ((isset($_GET['produit']) && $_GET['produit'])) {
     $id_produit = intval($_GET['produit']);
     $category = intval($_GET['category']);
-
-    //review
-    $reviewsql = "SELECT * FROM review WHERE id_produit=".$id_produit;
-    $reviewresult = mysqli_query($db, $reviewsql);
 
     $sql = "SELECT * FROM produits where id=".$id_produit;
     $result = mysqli_query($db, $sql);
@@ -33,11 +22,6 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
 
 ?>
 <?php include "./navbar.php";?>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -70,58 +54,7 @@ if ((isset($_GET['produit']) && $_GET['produit'])) {
                     </div>
                     <?php }?>
     </div>
-    <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                                    <?php 
-                                        if (mysqli_num_rows($reviewresult) > 0) {
-                                            while($reviewrow = mysqli_fetch_assoc($reviewresult)) { ?>
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <p class="mb-2" style="font-size: 14px;"><?= $reviewrow['date'] ?></p>
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="d-flex mb-3">
-                                                                <?php for($i=0; $i < 5; $i++ ){
-                                                                    if ($i < $reviewrow['rating'] ){ ?>
-                                                                    <i class="fa fa-star text-secondary"></i>
-                                                                    <?php } else { ?> 
-                                                                        <i class="fa fa-star"></i>
-                                                                <?php }} ?>
-                                                            </div>
-                                                        </div>
-                                                        <p><?= $reviewrow['comment'] ?></p>
-                                                    </div>
-                                                </div>
-                                        <?php }
-                                        } else {
-                                            echo "0 reviews";
-                                        }
-                                    ?>
-                                </div>
-                                <form method="POST">
-                            <h4 class="mb-5 fw-bold">Leave a Reply</h4>
-                            <div class="row g-4">
-                                <div class="col-lg-12">
-                                    <div class="border-bottom rounded my-4">
-                                        <textarea name="review" id="message" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="d-flex justify-content-between py-3 mb-5">
-                                        <div class="d-flex align-items-center">
-                                            <p class="mb-0 me-3">Please rate:</p>
-                                            <input type="number" name="rating" id="rating">
-                                            <div class="d-flex align-items-center" style="font-size: 12px;">
-                                                <i class="fa fa-star text-muted"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <button class="btn border border-secondary text-primary rounded-pill px-4 py-3" type="submit">Post Comment</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                                
                 </div>
                 
 
