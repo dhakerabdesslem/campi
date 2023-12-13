@@ -15,7 +15,7 @@ if (isset($_POST) && $_POST) {
   $prenom = $_POST['prenom'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-    $sqlinsert = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
+      $sqlinsert = "INSERT INTO `users` VALUES (NULL,'".$name."','".$prenom."','".$email."','".$password."','client')";
       $resinsert = mysqli_query($db, $sqlinsert);
       $sql = "SELECT * FROM `users` WHERE `email` = '".$email."' and `password` = '".$password."'";
       $result = mysqli_query($db, $sql);
